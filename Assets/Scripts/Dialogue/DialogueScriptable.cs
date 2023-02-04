@@ -7,4 +7,5 @@ public class DialogueScriptable : ScriptableObject
 {
     public Dialogue[] dialogues;
     public Choice[] choices;
+    public int eventIndex = -1;
 }
