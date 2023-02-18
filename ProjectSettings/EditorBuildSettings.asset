@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 366ce9a94c9bee3449eb44a0d00b2bd5
   - enabled: 1
-    path: Assets/Scenes/DialogueScene.unity
-    guid: 7a4741625a3ae8c418afce901e6d8e92
-  - enabled: 1
-    path: Assets/Scenes/DummyTransferScene.unity
-    guid: 160c265bd18fc334da301a8759693a19
+    path: Assets/Scenes/DayNightCycle.unity
+    guid: d098abd5d7b626746918c738667312c3
   m_configObjects: {}
