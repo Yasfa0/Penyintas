@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f6c8166fe633844b77dff1f619c5b0, type: 3}
+  m_Name: Cpt 1 Kardi Start
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Djoko
+    dialogue: Permisi pak, bapak sedang apa?
+  - name: Kardi
+    dialogue: Oh ini saya sedang mencari barang saya yang hilang
+  - name: Kardi
+    dialogue: Hmm?
+  - name: Kardi
+    dialogue: Apa kanda ingin membantu saya untuk mencari barang saya yang hilang
+      di hamparan rumput yang luas ini?
+  - name: Kardi
+    dialogue: Oh tenang saja hasil kerjamu akan saya hargai nanti
+  - name: Kardi
+    dialogue: Jadi apakah kakanda menerima tawaran ini?
+  choices:
+  - text: Bantu pedagang
+    choiceIndex: 0
+  - text: Tolak, lanjutkan perjalanan
+    choiceIndex: 0
+  eventIndex: -1

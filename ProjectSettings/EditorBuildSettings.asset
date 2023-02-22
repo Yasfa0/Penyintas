@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 366ce9a94c9bee3449eb44a0d00b2bd5
+  - enabled: 1
+    path: Assets/Scenes/DayNightCycle.unity
+    guid: d098abd5d7b626746918c738667312c3
+  - enabled: 1
+    path: Assets/Scenes/DummyLevel/Dummy Level 1.unity
+    guid: 91b63df5b607e7e4c8308a13942730ff
+  - enabled: 1
+    path: Assets/Scenes/DummyLevel/Dummy Level 2.unity
+    guid: c5dc67be23cf8a74f9db330848885788
+  - enabled: 1
+    path: Assets/Scenes/DummyLevel/Dummy Level 3 Tunnel.unity
+    guid: 07142275a80faac4a80b86cf83489268
+  - enabled: 1
+    path: Assets/Scenes/DummyLevel/Dummy Level 4.unity
+    guid: 1a071195949161a4f84924112c27e4ce
+  - enabled: 1
+    path: Assets/Scenes/DummyLevel/Dummy Level 3.unity
+    guid: e31c3db699170294fb087d99924c75d9
   m_configObjects: {}
