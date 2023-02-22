@@ -10,7 +10,7 @@ public class SettingData
 
     public SettingData()
     {
-        audioVolume = new float[3] { 1f, 1f, 1f };
+        audioVolume = new float[3] { 1f, 1f, 1f};
         isFullscreen = true;
     }
 }

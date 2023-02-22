@@ -55,4 +55,10 @@ public class AudioManager : MonoBehaviour
         return audioPlayers;
     }
 
+    public AudioSource CreateAudioSource(int audioPlayerIndex,float volume)
+    {
+        AudioSource newSource = audioPlayers[audioPlayerIndex].AddComponent<AudioSource>();
+        return newSource;
+    }
+
 }

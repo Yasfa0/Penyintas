@@ -55,6 +55,17 @@ public class DialogueController : MonoBehaviour
         dialogueBox.SetActive(true);
         talking = true;
 
+        //Dummy doang. Nanti hapus setelah ada kodingan player
+        if (FindObjectOfType<DummyMovement>())
+        {
+            FindObjectOfType<DummyMovement>().SetCanMove(false);
+            FindObjectOfType<DummyMovement>().StopMovement();
+        }
+        if (FindObjectOfType<PauseMenu>())
+        {
+            FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+        }
+
         dialogueList.Clear();
         foreach (var dialogue in dialogues)
         {
@@ -149,6 +160,16 @@ public class DialogueController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         talking = false;
         Debug.Log("Ending dialogue");
+        //Dummy doang. Nanti hapus setelah ada kodingan player
+        if (FindObjectOfType<DummyMovement>())
+        {
+            FindObjectOfType<DummyMovement>().SetCanMove(true);
+        }
+
+        if (FindObjectOfType<PauseMenu>())
+        {
+            FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+        }
     }
 
     public void ApplyChoice(int route)

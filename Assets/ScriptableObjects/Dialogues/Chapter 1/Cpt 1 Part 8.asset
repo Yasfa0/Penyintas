@@ -23,9 +23,5 @@ MonoBehaviour:
     dialogue: Yang terpenting adalah keselamatanku terlebih dahulu
   - name: Djoko
     dialogue: Bagaimana caraku melewati camp ini?
-  choices:
-  - text: Lewat lubang di tanah
-    choiceIndex: 0
-  - text: Menerobos Camp
-    choiceIndex: 0
+  choices: []
   eventIndex: -1

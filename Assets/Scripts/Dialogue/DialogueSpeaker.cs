@@ -5,13 +5,14 @@ using UnityEngine;
 public class DialogueSpeaker : MonoBehaviour
 {
     [SerializeField] public List<DialogueScriptable> dialogueList = new List<DialogueScriptable>();
+    [SerializeField] private bool canSetup = false;
 
     private void Update()
     {
         //Dummy Only
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!DialogueController.Instance.GetTalking())
+            if (!DialogueController.Instance.GetTalking() && canSetup)
             {
                 DialogueController.Instance.SetCurrentSpeaker(this);
                 DialogueController.Instance.SetupDialogue(dialogueList);
