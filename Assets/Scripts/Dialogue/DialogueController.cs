@@ -55,11 +55,11 @@ public class DialogueController : MonoBehaviour
         dialogueBox.SetActive(true);
         talking = true;
 
-        //Dummy doang. Nanti hapus setelah ada kodingan player
-        if (FindObjectOfType<DummyMovement>())
+        if (FindObjectOfType<PlayerCharacter>())
         {
-            FindObjectOfType<DummyMovement>().SetCanMove(false);
-            FindObjectOfType<DummyMovement>().StopMovement();
+            Debug.Log("Player Movement False");
+            FindObjectOfType<PlayerMovement>().SetCanMove(false);
+            FindObjectOfType<PlayerMovement>().StopMovement();
         }
         if (FindObjectOfType<PauseMenu>())
         {
@@ -161,9 +161,11 @@ public class DialogueController : MonoBehaviour
         talking = false;
         Debug.Log("Ending dialogue");
         //Dummy doang. Nanti hapus setelah ada kodingan player
-        if (FindObjectOfType<DummyMovement>())
+        if (FindObjectOfType<PlayerMovement>())
         {
-            FindObjectOfType<DummyMovement>().SetCanMove(true);
+            Debug.Log("Player Movement True");
+            FindObjectOfType<PlayerMovement>().SetCanMove(true);
+            FindObjectOfType<PlayerMovement>().ResetSpeed();
         }
 
         if (FindObjectOfType<PauseMenu>())

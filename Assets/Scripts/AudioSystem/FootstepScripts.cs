@@ -13,10 +13,6 @@ public class FootstepScripts : MonoBehaviour
 
     private void Awake()
     {
-        /*foreach (AudioClip clip in footstepClip)
-        {
-            defaultClip.Add(clip);
-        }*/
         defaultClip = footstepClip;
     }
 
@@ -66,7 +62,10 @@ public class FootstepScripts : MonoBehaviour
     public void PlayFootstepAudio()
     {
         //AudioManager.Instance.PlayAudio(footstepAudio[audioIndex],1);
-        audioSource[audioIndex].Play();
+        if (audioSource[audioIndex])
+        {
+            audioSource[audioIndex].Play();
+        }
         if (audioIndex >= footstepClip.Count-1)
         {
             audioIndex = 0;
