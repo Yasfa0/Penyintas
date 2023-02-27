@@ -10,11 +10,15 @@ public class PlayerCharacter : MonoBehaviour
     private int health = 1;
 
     [SerializeField] private Transform sightTarget;
+    private Animator animator;
+    private RuntimeAnimatorController animatorController;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
         transform.position = PlayerData.GetSpawnPosition();
+        animator = GetComponent<Animator>();
+        animatorController = animator.runtimeAnimatorController;
 
         /*if (SaveSystem.currentSaveData != null)
         {
@@ -52,5 +56,14 @@ public class PlayerCharacter : MonoBehaviour
         return sightTarget;
     }
 
+    public void EraseAnimController()
+    {
+        animator.runtimeAnimatorController = null;
+    }
+
+    public void ReassignAnimController()
+    {
+        animator.runtimeAnimatorController = animatorController;
+    }
 
 }

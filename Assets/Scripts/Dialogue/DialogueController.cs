@@ -79,6 +79,35 @@ public class DialogueController : MonoBehaviour
         ShowDialogue(dialogueList[dialogueRoute].dialogues[dialogueIndex]);
     }
 
+    public void OpenDialogueRoute(List<DialogueScriptable> dialogues,int inputRoute)
+    {
+        dialogueBox.SetActive(true);
+        talking = true;
+
+        if (FindObjectOfType<PlayerCharacter>())
+        {
+            Debug.Log("Player Movement False");
+            FindObjectOfType<PlayerMovement>().SetCanMove(false);
+            FindObjectOfType<PlayerMovement>().StopMovement();
+        }
+        if (FindObjectOfType<PauseMenu>())
+        {
+            FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+        }
+
+        dialogueList.Clear();
+        foreach (var dialogue in dialogues)
+        {
+            dialogueList.Add(dialogue);
+        }
+
+        dialogueRoute = inputRoute;
+        dialogueIndex = 0;
+
+        Debug.Log("Setting up dialogue");
+        ShowDialogue(dialogueList[dialogueRoute].dialogues[dialogueIndex]);
+    }
+
     public void ShowDialogue(Dialogue currentDialogue)
     {
         doneWriting = false;

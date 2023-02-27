@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: Djoko
     dialogue: Ukh..  sakit sekali untuk berjalan.
   - name: Djoko
-    dialogue: Aku harus pelan pelan berjalan di antara tumpukan mayat mayat ini.
+    dialogue: Aku harus bersembunyi di antara tumpukan mayat mayat ini.
   - name: Djoko
     dialogue: Jangan sampai ketahuan..
   choices: []

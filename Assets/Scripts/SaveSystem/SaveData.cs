@@ -10,6 +10,8 @@ public class SaveData
     public float posX, posY;
     public int health;
 
+    public List<bool> eventKey;
+
     public SaveData()
     {
         isQuicksave = false;

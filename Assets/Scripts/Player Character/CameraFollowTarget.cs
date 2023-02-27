@@ -7,6 +7,7 @@ public class CameraFollowTarget : MonoBehaviour
     private Transform player;
     //public Transform bg1;
     public Transform endLimit;
+    private bool canFollow = true;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class CameraFollowTarget : MonoBehaviour
 
     private void Update()
     {
-        if (player)
+        if (player && canFollow)
         {
             if (player.position.x != transform.position.x && player.position.x > 0 && player.position.x < endLimit.position.x)
             {
@@ -26,6 +27,10 @@ public class CameraFollowTarget : MonoBehaviour
                 //bg1.transform.position = new Vector2(transform.position.x * 1.0f, bg1.transform.position.y);
             }
         }
-        
+    }
+
+    public void SetCanFollow(bool inputValue)
+    {
+        canFollow = inputValue;
     }
 }

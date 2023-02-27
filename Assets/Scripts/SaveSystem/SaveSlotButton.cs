@@ -77,6 +77,7 @@ public class SaveSlotButton : MonoBehaviour
             {
                 typeText.text = "Save Data";
             }
+            SaveSystem.SetCurrentSaveData(saveData);
         }
     }
 
