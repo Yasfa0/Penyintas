@@ -18,19 +18,19 @@ public class SaveSlotButton : MonoBehaviour
 
         if (saveData.sceneName.Equals(""))
         {
-            typeText.text = "";
-            sceneText.text = "Empty Slot";
+            typeText.text = "SLOT " + (index + 1);
+            sceneText.text = "EMPTY";
         }
         else
         {
             sceneText.text = saveData.sceneName;
             if (saveData.isQuicksave)
             {
-                typeText.text = "Quicksave";
+                typeText.text = "AUTOSAVE";
             }
             else
             {
-                typeText.text = "Save Data";
+                typeText.text = "SLOT "+(index+1);
             }
         }
     }
@@ -55,6 +55,7 @@ public class SaveSlotButton : MonoBehaviour
         saveData = SaveSystem.LoadSave("save" + slotIndex);
         SaveSystem.SetCurrentSaveData(saveData);
         PlayerData.LoadFromSave();
+        Time.timeScale = 1f;
         FindObjectOfType<SceneLoading>().LoadScene(saveData.sceneName);
     }
 

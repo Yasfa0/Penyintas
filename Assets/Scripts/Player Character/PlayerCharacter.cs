@@ -10,8 +10,11 @@ public class PlayerCharacter : MonoBehaviour
     private int health = 1;
 
     [SerializeField] private Transform sightTarget;
+    [SerializeField] private GameObject gameOverPrefab;
     private Animator animator;
     private RuntimeAnimatorController animatorController;
+
+    private bool isGameOver;
 
     private void Awake()
     {
@@ -38,11 +41,14 @@ public class PlayerCharacter : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
+        if (health <= 0 && !isGameOver)
         {
+            isGameOver = true;
             //Jalanin animasi mati
             playerMovement.SetCanMove(false);
-            SceneManager.LoadScene("GameOver");
+            playerMovement.StopMovement();
+            //SceneManager.LoadScene("GameOver");
+            Instantiate(gameOverPrefab);
         }
     }
 

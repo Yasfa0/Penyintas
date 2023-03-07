@@ -15,7 +15,9 @@ MonoBehaviour:
   dialogues:
   - name: Djoko
     dialogue: Oh sial, di depan masih ada beberapa orang
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Aku harus berhati hati melewati mereka
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   choices: []
   eventIndex: 0

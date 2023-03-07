@@ -15,9 +15,15 @@ MonoBehaviour:
   dialogues:
   - name: Djoko
     dialogue: Pertama aku harus pergi dari area ini dulu
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Setelah itu baru cari obat penyembuh
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Jalan terdekat sepertinya menuju kedalam hutan itu.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: System
+    dialogue: (Tekan A dan D untuk bergerak)
+    textColor: {r: 0.3443396, g: 0.7504811, b: 1, a: 1}
   choices: []
   eventIndex: 2

@@ -63,7 +63,8 @@ public class DialogueController : MonoBehaviour
         }
         if (FindObjectOfType<PauseMenu>())
         {
-            FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            FindObjectOfType<PauseMenu>().SetCanPause(false);
         }
 
         dialogueList.Clear();
@@ -92,7 +93,8 @@ public class DialogueController : MonoBehaviour
         }
         if (FindObjectOfType<PauseMenu>())
         {
-            FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            FindObjectOfType<PauseMenu>().SetCanPause(false);
         }
 
         dialogueList.Clear();
@@ -111,6 +113,7 @@ public class DialogueController : MonoBehaviour
     public void ShowDialogue(Dialogue currentDialogue)
     {
         doneWriting = false;
+        dialogueText.color = currentDialogue.textColor;
         dialogueText.text = " ";
 
 
@@ -199,7 +202,8 @@ public class DialogueController : MonoBehaviour
 
         if (FindObjectOfType<PauseMenu>())
         {
-            FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+            FindObjectOfType<PauseMenu>().SetCanPause(true);
         }
     }
 

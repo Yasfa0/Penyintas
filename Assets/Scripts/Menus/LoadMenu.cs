@@ -11,7 +11,7 @@ public class LoadMenu : MonoBehaviour
 
     public void SetupSaveMenu()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject saveSlot = Instantiate(saveSlotPrefab);
             saveSlot.transform.SetParent(loadGridPanel.transform);

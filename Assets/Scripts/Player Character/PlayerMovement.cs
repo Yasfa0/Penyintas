@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private bool canMove = true;
+    private static bool canMove = true;
 
     Rigidbody2D rb;
     Animator anim;
@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector3.zero;
         speed = 0;
         anim.SetFloat("Speed", Mathf.Abs(move * speed));
+        Debug.Log("Movement Stopped");
     }
 
     public void ResetSpeed()
