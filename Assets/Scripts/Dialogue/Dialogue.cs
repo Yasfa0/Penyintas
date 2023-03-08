@@ -8,4 +8,5 @@ public class Dialogue
     public string name;
     [TextArea(3,15)]
     public string dialogue;
+    public Color textColor = Color.white;
 }

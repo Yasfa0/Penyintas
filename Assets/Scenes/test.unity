@@ -648,8 +648,13 @@ GameObject:
   - component: {fileID: 1026371275}
   - component: {fileID: 1026371278}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: KOtak
   m_TagString: Ground
+=======
+  m_Name: Kotak
+  m_TagString: Untagged
+>>>>>>> 99311da108b61871ad0ef36166083c827c5039ee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3057,7 +3062,7 @@ GameObject:
   - component: {fileID: 4110559080090156711}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

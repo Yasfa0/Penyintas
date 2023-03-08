@@ -11,7 +11,7 @@ public class ChangeArea : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            FindObjectOfType<DummyMovement>().SetSpawnPosition(spawnPosition);
+            PlayerData.SetSpawnPosition(spawnPosition);
             FindObjectOfType<SceneLoading>().LoadScene(sceneName);
         }
     }
