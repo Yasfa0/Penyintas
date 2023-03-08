@@ -1,0 +1,693 @@
+fileFormatVersion: 2
+guid: 857aa75796ec5654c869e8abac8d1e87
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 300
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: lengkap
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1764
+      y: 4
+      width: 244
+      height: 309
+    spriteID: 101fcff4bdc53bc43998fb14add495da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1764, y: 4}
+    spritePosition: {x: 417, y: 1549}
+  - name: lengkap
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1561
+      y: 4
+      width: 195
+      height: 659
+    spriteID: 1d7b21d497568a04dae8d7e109bde34a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1561, y: 4}
+    spritePosition: {x: 364, y: 874}
+  - name: badan + baju
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 304
+      height: 997
+    spriteID: da3d95f6a08aa874893416a0bbbf16aa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 399, y: 628}
+  - name: kaki atas + baju
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 611
+      y: 4
+      width: 287
+      height: 738
+    spriteID: 3088128f7ac349849a9abca757688abc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 611, y: 4}
+    spritePosition: {x: 416, y: 490}
+  - name: kaki bawah lengkap
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 906
+      y: 4
+      width: 218
+      height: 603
+    spriteID: 53e6bda2e35e6744c99b7d913928c7fe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 906, y: 4}
+    spritePosition: {x: 447, y: 33}
+  - name: kaki atas + baju
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 316
+      y: 4
+      width: 287
+      height: 741
+    spriteID: 3256594e0d358894b886b897f7ef306c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 316, y: 4}
+    spritePosition: {x: 416, y: 489}
+  - name: kaki bawah lengkap
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1132
+      y: 4
+      width: 218
+      height: 593
+    spriteID: 75c510ffbe076f845aa6dcbeaefaedd9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1132, y: 4}
+    spritePosition: {x: 447, y: 33}
+  - name: lengkap
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1358
+      y: 4
+      width: 195
+      height: 662
+    spriteID: 62f0c388142117e4e87404ebefdb15d7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1358, y: 4}
+    spritePosition: {x: 363, y: 871}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Windows Store Apps
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: kepala
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 5d9238da177ab3048a5daa76a0a38335
+    layerID: 5
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: lengkap
+    spriteName: lengkap
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 101fcff4bdc53bc43998fb14add495da
+    layerID: 7
+    mosaicPosition: {x: 1764, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kepala
+    spriteName: 
+    isGroup: 0
+    parentIndex: 0
+    spriteID: afc1501ff1cc81a4bbc629f02f505fdb
+    layerID: 8
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: leher
+    spriteName: 
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 82995c95cb31ff94f998e8f6a4b664b6
+    layerID: 2
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: tangan kanan/depan
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: edb5281a35e9bd54ba563ac0da62b3cf
+    layerID: 12
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: lengkap
+    spriteName: lengkap
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 1d7b21d497568a04dae8d7e109bde34a
+    layerID: 10
+    mosaicPosition: {x: 1561, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lengan atas
+    spriteName: 
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 832d2231806dfd04ca8f58ab45c6751f
+    layerID: 16
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lengan bawah lengkap
+    spriteName: 
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 931671dbbe0892c4c9cfa2071d964531
+    layerID: 14
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lengan bawaah
+    spriteName: 
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 281cf1ca5ef460e4ea3bea2ccada89e8
+    layerID: 15
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: kepal
+    spriteName: 
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 0dd755f15c7954c43b0c924a4fff006b
+    layerID: 17
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: 'badan '
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: cb102f54829707a42810dcd01378e048
+    layerID: 27
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: baju
+    spriteName: 
+    isGroup: 0
+    parentIndex: 10
+    spriteID: 0b5331ab336f83c4897d5caa3bd69357
+    layerID: 19
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: badan saja
+    spriteName: 
+    isGroup: 0
+    parentIndex: 10
+    spriteID: b61760135afd74042adfaec96022a898
+    layerID: 18
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: badan + baju
+    spriteName: badan + baju
+    isGroup: 0
+    parentIndex: 10
+    spriteID: da3d95f6a08aa874893416a0bbbf16aa
+    layerID: 23
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kaki kanan/depan
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 444fbe751afeaf64c851bf94cccb8b98
+    layerID: 25
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: kaki atas + baju
+    spriteName: kaki atas + baju
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 3088128f7ac349849a9abca757688abc
+    layerID: 32
+    mosaicPosition: {x: 611, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kaki atas
+    spriteName: 
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 6d9b9e184765e7041be5c8037ae4faf4
+    layerID: 29
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: kaki bawah lengkap
+    spriteName: kaki bawah lengkap
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 53e6bda2e35e6744c99b7d913928c7fe
+    layerID: 20
+    mosaicPosition: {x: 906, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kaki bawah
+    spriteName: 
+    isGroup: 0
+    parentIndex: 14
+    spriteID: f58aa2fd09b08a74b887e5b2e67083ae
+    layerID: 34
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: telapak kaki
+    spriteName: 
+    isGroup: 0
+    parentIndex: 14
+    spriteID: 44dcb4fa03bd4494bbf73817efe2d293
+    layerID: 33
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: kaki kiri/belakang
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: ebd82b804c74f2843a796cb7cbb23f05
+    layerID: 21
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: kaki atas + baju
+    spriteName: kaki atas + baju
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 3256594e0d358894b886b897f7ef306c
+    layerID: 38
+    mosaicPosition: {x: 316, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kaki atas
+    spriteName: 
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 9baa73dfaba142943bcef31a76e79756
+    layerID: 40
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: kaki bawah lengkap
+    spriteName: kaki bawah lengkap
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 75c510ffbe076f845aa6dcbeaefaedd9
+    layerID: 41
+    mosaicPosition: {x: 1132, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: kaki bawah
+    spriteName: 
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 1a18000ac7a9dc44ea10e31311192663
+    layerID: 44
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: telapak
+    spriteName: 
+    isGroup: 0
+    parentIndex: 20
+    spriteID: 8200dde37d2e4cb4dbb25111edd3d20a
+    layerID: 43
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: tanngann kiri/belakang
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 06cc3f26345626f4881974c436739dfc
+    layerID: 46
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: lengkap
+    spriteName: lengkap
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 62f0c388142117e4e87404ebefdb15d7
+    layerID: 45
+    mosaicPosition: {x: 1358, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: lenagn atas
+    spriteName: 
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 228b334295aa5704bb0384d99b33e43e
+    layerID: 49
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: lengan bawah lengkap
+    spriteName: 
+    isGroup: 0
+    parentIndex: 26
+    spriteID: e2e3525c2efb3ac49a3222710c8c4b69
+    layerID: 50
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: 'lengan bawah '
+    spriteName: 
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 9d8e7d7ca39f218488c820def0655541
+    layerID: 52
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: kepal
+    spriteName: 
+    isGroup: 0
+    parentIndex: 26
+    spriteID: a03dee9a8e1c4c94d95574f6a0679df0
+    layerID: 51
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: body full kanan/depan
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7275b04d0de6d254ca5fee0928ed796f
+    layerID: 48
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: body full kiri/belakang
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c77aa60bd46d9ed43a13eaf8191c42d4
+    layerID: 35
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 1
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

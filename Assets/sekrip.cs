@@ -26,6 +26,8 @@ public class sekrip : MonoBehaviour
             transform.rotation = -move > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
         }
 
+        
+
         anim.SetFloat("Speed", Mathf.Abs(move * speed));
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -54,6 +56,16 @@ public class sekrip : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.S))
         {
             anim.SetBool("isCrouch", false);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Respawn")
+        {
+            Rekdol rekdol = GetComponent<Rekdol>();
+            rekdol.isDead = true;
+            //rb.AddForce(new Vector2(rb.velocity.x * 3000, rb.velocity.y * 3000));
         }
     }
 }
