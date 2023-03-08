@@ -14,7 +14,7 @@ public class SaveMenu : MonoBehaviour
     {
         savePanel.SetActive(true);
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             GameObject saveSlot = Instantiate(saveSlotPrefab);
             saveSlot.transform.SetParent(saveGridPanel.transform);
@@ -34,5 +34,6 @@ public class SaveMenu : MonoBehaviour
         saveSlotList.Clear();
         savePanel.SetActive(false);
     }
+
 
 }

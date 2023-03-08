@@ -26,19 +26,9 @@ public class SceneLoading : MonoBehaviour
         loadingScreen.SetActive(true);
         if (!loadAsync.isDone)
         {
-            //float progress = Mathf.Clamp01(loadAsync.progress / 0.9f);
-            float progress = Mathf.Clamp01(loadAsync.progress);
-            Debug.Log("Progress " + progress);
+            float progress = Mathf.Clamp01(loadAsync.progress / 0.9f);
             loadingScreen.GetComponentInChildren<Slider>().value = progress;
             yield return null;
-        }
-        if (FindObjectOfType<PlayerMovement>())
-        {
-            FindObjectOfType<PlayerMovement>().SetCanMove(true);
-        }
-        if (FindObjectOfType<PauseMenu>())
-        {
-            FindObjectOfType<PauseMenu>().SetIsPause(false);
         }
     }
 

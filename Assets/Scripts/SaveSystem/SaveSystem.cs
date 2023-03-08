@@ -41,19 +41,6 @@ public static class SaveSystem
         }
     }
 
-    public static bool CheckSaveSlot(int saveIndex)
-    {
-        string path = Application.persistentDataPath + "/save" + saveIndex + ".dat";
-        if (File.Exists(path))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     public static void SetCurrentSaveData(SaveData save)
     {
         currentSaveData = save;

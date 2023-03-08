@@ -8,9 +8,6 @@ public class SaveData
     public bool isQuicksave;
     public string sceneName;
     public float posX, posY;
-    public int health;
-
-    public List<bool> eventKey;
 
     public SaveData()
     {
@@ -18,6 +15,5 @@ public class SaveData
         sceneName = "";
         posX = 0;
         posY = 0;
-        health = 1;
     }
 }

@@ -13,6 +13,10 @@ public class FootstepScripts : MonoBehaviour
 
     private void Awake()
     {
+        /*foreach (AudioClip clip in footstepClip)
+        {
+            defaultClip.Add(clip);
+        }*/
         defaultClip = footstepClip;
     }
 
@@ -34,12 +38,10 @@ public class FootstepScripts : MonoBehaviour
     public void SetupFootstep(List<AudioClip> newFootsteps)
     {
         //Hilangin semua AudioSource
-        /*foreach (AudioSource source in audioSource)
+        foreach (AudioSource source in audioSource)
         {
             Destroy(source);
         }
-        audioSource.Clear();*/
-
         audioSource.Clear();
 
         //Regenerate AudioSource, Clip, save ke list
@@ -63,32 +65,8 @@ public class FootstepScripts : MonoBehaviour
 
     public void PlayFootstepAudio()
     {
-        //Apabila ada, hapus semua source yang tidak diperlukan
-        AudioSource[] allSource = FindObjectsOfType<AudioSource>();
-        foreach (AudioSource source in allSource)
-        {
-            bool isValid = false;
-            foreach (AudioSource validSource in audioSource)
-            {
-                if (source == validSource)
-                {
-                    isValid = true;
-                }
-            }
-
-            if (!isValid && !source.isPlaying)
-            {
-                Destroy(source);
-            }
-        }
-
         //AudioManager.Instance.PlayAudio(footstepAudio[audioIndex],1);
-        if (audioSource[audioIndex])
-        {
-            settingData = GameSetting.LoadSetting();
-            audioSource[audioIndex].volume = settingData.audioVolume[1]; 
-            audioSource[audioIndex].Play();
-        }
+        audioSource[audioIndex].Play();
         if (audioIndex >= footstepClip.Count-1)
         {
             audioIndex = 0;
