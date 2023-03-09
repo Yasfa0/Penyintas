@@ -18,19 +18,19 @@ public class SaveSlotButton : MonoBehaviour
 
         if (saveData.sceneName.Equals(""))
         {
-            typeText.text = "";
-            sceneText.text = "Empty Slot";
+            typeText.text = "SLOT " + (index + 1);
+            sceneText.text = "EMPTY";
         }
         else
         {
             sceneText.text = saveData.sceneName;
             if (saveData.isQuicksave)
             {
-                typeText.text = "Quicksave";
+                typeText.text = "AUTOSAVE";
             }
             else
             {
-                typeText.text = "Save Data";
+                typeText.text = "SLOT "+(index+1);
             }
         }
     }
@@ -41,9 +41,10 @@ public class SaveSlotButton : MonoBehaviour
         tempSave.isQuicksave = false;
         tempSave.sceneName = SceneManager.GetActiveScene().name;
         //Dummy
-        Vector3 pos = FindObjectOfType<DummyMovement>().transform.position;
+        Vector3 pos = FindObjectOfType<PlayerCharacter>().transform.position;
         tempSave.posX = pos.x;
         tempSave.posY = pos.y;
+        tempSave.health = FindObjectOfType<PlayerCharacter>().GetHealth();
         SaveSystem.SaveGame(tempSave,"save"+slotIndex);
 
         UpdateSaveSlot();
@@ -53,6 +54,8 @@ public class SaveSlotButton : MonoBehaviour
     {
         saveData = SaveSystem.LoadSave("save" + slotIndex);
         SaveSystem.SetCurrentSaveData(saveData);
+        PlayerData.LoadFromSave();
+        Time.timeScale = 1f;
         FindObjectOfType<SceneLoading>().LoadScene(saveData.sceneName);
     }
 
@@ -75,6 +78,7 @@ public class SaveSlotButton : MonoBehaviour
             {
                 typeText.text = "Save Data";
             }
+            SaveSystem.SetCurrentSaveData(saveData);
         }
     }
 

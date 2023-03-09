@@ -55,15 +55,16 @@ public class DialogueController : MonoBehaviour
         dialogueBox.SetActive(true);
         talking = true;
 
-        //Dummy doang. Nanti hapus setelah ada kodingan player
-        if (FindObjectOfType<DummyMovement>())
+        if (FindObjectOfType<PlayerCharacter>())
         {
-            FindObjectOfType<DummyMovement>().SetCanMove(false);
-            FindObjectOfType<DummyMovement>().StopMovement();
+            Debug.Log("Player Movement False");
+            FindObjectOfType<PlayerMovement>().SetCanMove(false);
+            FindObjectOfType<PlayerMovement>().StopMovement();
         }
         if (FindObjectOfType<PauseMenu>())
         {
-            FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            FindObjectOfType<PauseMenu>().SetCanPause(false);
         }
 
         dialogueList.Clear();
@@ -79,9 +80,40 @@ public class DialogueController : MonoBehaviour
         ShowDialogue(dialogueList[dialogueRoute].dialogues[dialogueIndex]);
     }
 
+    public void OpenDialogueRoute(List<DialogueScriptable> dialogues,int inputRoute)
+    {
+        dialogueBox.SetActive(true);
+        talking = true;
+
+        if (FindObjectOfType<PlayerCharacter>())
+        {
+            Debug.Log("Player Movement False");
+            FindObjectOfType<PlayerMovement>().SetCanMove(false);
+            FindObjectOfType<PlayerMovement>().StopMovement();
+        }
+        if (FindObjectOfType<PauseMenu>())
+        {
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            FindObjectOfType<PauseMenu>().SetCanPause(false);
+        }
+
+        dialogueList.Clear();
+        foreach (var dialogue in dialogues)
+        {
+            dialogueList.Add(dialogue);
+        }
+
+        dialogueRoute = inputRoute;
+        dialogueIndex = 0;
+
+        Debug.Log("Setting up dialogue");
+        ShowDialogue(dialogueList[dialogueRoute].dialogues[dialogueIndex]);
+    }
+
     public void ShowDialogue(Dialogue currentDialogue)
     {
         doneWriting = false;
+        dialogueText.color = currentDialogue.textColor;
         dialogueText.text = " ";
 
 
@@ -161,14 +193,17 @@ public class DialogueController : MonoBehaviour
         talking = false;
         Debug.Log("Ending dialogue");
         //Dummy doang. Nanti hapus setelah ada kodingan player
-        if (FindObjectOfType<DummyMovement>())
+        if (FindObjectOfType<PlayerMovement>())
         {
-            FindObjectOfType<DummyMovement>().SetCanMove(true);
+            Debug.Log("Player Movement True");
+            FindObjectOfType<PlayerMovement>().SetCanMove(true);
+            FindObjectOfType<PlayerMovement>().ResetSpeed();
         }
 
         if (FindObjectOfType<PauseMenu>())
         {
-            FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+            FindObjectOfType<PauseMenu>().SetCanPause(true);
         }
     }
 
