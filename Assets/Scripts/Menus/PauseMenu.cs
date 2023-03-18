@@ -13,11 +13,14 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject loadPanel;
-    [SerializeField] private Button firstSelected;
 
     [SerializeField] private AudioClip btnSound;
     private static bool isPaused;
     private bool canPause = true;
+
+    [SerializeField] private Button firstSelected;
+    [SerializeField] private GameObject optionFocus;
+    [SerializeField] private GameObject loadFocus;
 
     private void Awake()
     {
@@ -67,7 +70,7 @@ public class PauseMenu : MonoBehaviour
         loadPanel.SetActive(true);
         pausePanel.SetActive(false);
         FindObjectOfType<LoadMenu>().SetupSaveMenu();
-        //EventSystem.current.SetSelectedGameObject(FindObjectOfType<Button>().gameObject);
+        EventSystem.current.SetSelectedGameObject(loadFocus);
     }
 
     public void CloseLoadMenu()
@@ -76,7 +79,7 @@ public class PauseMenu : MonoBehaviour
         loadPanel.SetActive(false);
         loadPanel.GetComponent<LoadMenu>().CloseLoadMenu();
         pausePanel.SetActive(true);
-        //EventSystem.current.SetSelectedGameObject(FindObjectOfType<Button>().gameObject);
+        EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
     }
 
     public void OpenOption()
@@ -86,6 +89,7 @@ public class PauseMenu : MonoBehaviour
         optionPanel.SetActive(true);
 
         FindObjectOfType<OptionMenu>().SetupOption();
+        EventSystem.current.SetSelectedGameObject(optionFocus);
     }
 
 
@@ -94,6 +98,7 @@ public class PauseMenu : MonoBehaviour
         AudioManager.Instance.PlayAudio(btnSound, 1);
         pausePanel.SetActive(true);
         optionPanel.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
     }
 
     public void ToMainMenu()
@@ -101,7 +106,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
         AudioManager.Instance.PlayAudio(btnSound, 1);
-        FindObjectOfType<SceneLoading>().LoadScene("MainMenu");
+        FindObjectOfType<SceneLoading>().LoadScene("MainMenu",0);
     }
 
     public void PauseButtonVisibility(bool isVisible)

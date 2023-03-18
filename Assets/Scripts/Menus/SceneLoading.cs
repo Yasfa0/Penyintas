@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoading : MonoBehaviour
 {
-    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private List<GameObject> loadingScreen;
     [SerializeField] private GameObject blackScreen;
 
     private void Awake()
@@ -14,22 +14,22 @@ public class SceneLoading : MonoBehaviour
         StartCoroutine(FadeBlackScreen("FadeIn", false));   
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string sceneName, int typeIndex)
     {
-        StartCoroutine(LoadingScreen(sceneName));
+        StartCoroutine(LoadingScreen(sceneName,typeIndex));
     }
 
-    IEnumerator LoadingScreen(string sceneName)
+    IEnumerator LoadingScreen(string sceneName, int typeIndex)
     {
         AsyncOperation loadAsync = SceneManager.LoadSceneAsync(sceneName);
 
-        loadingScreen.SetActive(true);
+        loadingScreen[typeIndex].SetActive(true);
         if (!loadAsync.isDone)
         {
             //float progress = Mathf.Clamp01(loadAsync.progress / 0.9f);
             float progress = Mathf.Clamp01(loadAsync.progress);
             Debug.Log("Progress " + progress);
-            loadingScreen.GetComponentInChildren<Slider>().value = progress;
+            loadingScreen[typeIndex].GetComponentInChildren<Slider>().value = progress;
             yield return null;
         }
         if (FindObjectOfType<PlayerMovement>())

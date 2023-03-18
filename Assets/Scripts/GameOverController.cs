@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameOverController : MonoBehaviour
 {
     [SerializeField] private float inputWait;
+    [SerializeField] private AudioClip gameOverSFX;
     private float startTime;
 
     private void Start()
     {
         startTime = Time.time;
+        AudioManager.Instance.PlayAudio(gameOverSFX, 1);
     }
 
     private void Update()
@@ -22,11 +24,11 @@ public class GameOverController : MonoBehaviour
                 if (SaveSystem.currentSaveData != null && DoesSceneExist(SaveSystem.currentSaveData.sceneName))
                 {
                     PlayerData.LoadFromSave();
-                    FindObjectOfType<SceneLoading>().LoadScene(SaveSystem.currentSaveData.sceneName);
+                    FindObjectOfType<SceneLoading>().LoadScene(SaveSystem.currentSaveData.sceneName,0);
                 }
                 else
                 {
-                    FindObjectOfType<SceneLoading>().LoadScene("MainMenu");
+                    FindObjectOfType<SceneLoading>().LoadScene("MainMenu",0);
                 }
             }
         }

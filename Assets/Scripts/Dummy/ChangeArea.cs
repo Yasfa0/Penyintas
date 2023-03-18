@@ -12,7 +12,7 @@ public class ChangeArea : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             PlayerData.SetSpawnPosition(spawnPosition);
-            FindObjectOfType<SceneLoading>().LoadScene(sceneName);
+            FindObjectOfType<SceneLoading>().LoadScene(sceneName,0);
         }
     }
 }

@@ -20,7 +20,7 @@ public class FootstepScripts : MonoBehaviour
     {
         //Generate source di audioplayer SFX sebanyak list clip
         settingData = GameSetting.LoadSetting();
-        foreach (AudioClip stepAudio in footstepClip)
+        /*foreach (AudioClip stepAudio in footstepClip)
         {
             audioSource.Add(AudioManager.Instance.CreateAudioSource(1,settingData.audioVolume[1]));
         }
@@ -28,7 +28,8 @@ public class FootstepScripts : MonoBehaviour
         for (int i = 0; i < audioSource.Count; i++)
         {
             audioSource[i].clip = footstepClip[i];
-        }
+        }*/
+        audioSource = AudioManager.Instance.CreateSubAudioSource(footstepClip,1);
     }
 
     public void SetupFootstep(List<AudioClip> newFootsteps)
@@ -39,13 +40,14 @@ public class FootstepScripts : MonoBehaviour
             Destroy(source);
         }
         audioSource.Clear();*/
-
+        Destroy(audioSource[0].gameObject,0.7f);
         audioSource.Clear();
 
         //Regenerate AudioSource, Clip, save ke list
         footstepClip = newFootsteps;
+
         settingData = GameSetting.LoadSetting();
-        foreach (AudioClip stepAudio in footstepClip)
+        /*foreach (AudioClip stepAudio in footstepClip)
         {
             audioSource.Add(AudioManager.Instance.CreateAudioSource(1,settingData.audioVolume[1]));
         }
@@ -53,7 +55,9 @@ public class FootstepScripts : MonoBehaviour
         for (int i = 0; i < audioSource.Count; i++)
         {
             audioSource[i].clip = footstepClip[i];
-        }
+        }*/
+
+        audioSource = AudioManager.Instance.CreateSubAudioSource(footstepClip, 1);
     }
 
     public void ResetFootstep()
@@ -64,7 +68,7 @@ public class FootstepScripts : MonoBehaviour
     public void PlayFootstepAudio()
     {
         //Apabila ada, hapus semua source yang tidak diperlukan
-        AudioSource[] allSource = FindObjectsOfType<AudioSource>();
+        /*AudioSource[] allSource = FindObjectsOfType<AudioSource>();
         foreach (AudioSource source in allSource)
         {
             bool isValid = false;
@@ -75,21 +79,19 @@ public class FootstepScripts : MonoBehaviour
                     isValid = true;
                 }
             }
-
             if (!isValid && !source.isPlaying)
             {
                 Destroy(source);
             }
-        }
-
+        }*/
         //AudioManager.Instance.PlayAudio(footstepAudio[audioIndex],1);
-        if (audioSource[audioIndex])
+        if(audioSource[audioIndex])
         {
             settingData = GameSetting.LoadSetting();
-            audioSource[audioIndex].volume = settingData.audioVolume[1]; 
+            audioSource[audioIndex].volume = settingData.audioVolume[1] * 15f /100f; 
             audioSource[audioIndex].Play();
         }
-        if (audioIndex >= footstepClip.Count-1)
+        if(audioIndex >= footstepClip.Count-1)
         {
             audioIndex = 0;
         }

@@ -6,8 +6,6 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -81,7 +79,7 @@ public class MainMenuController : MonoBehaviour
     public void NewGame()
     {
         AudioManager.Instance.PlayAudio(buttonSound, 1);
-        FindObjectOfType<SceneLoading>().LoadScene(firstStage);
+        FindObjectOfType<SceneLoading>().LoadScene(firstStage,1);
     }
 
     public void OpenLoadMenu()

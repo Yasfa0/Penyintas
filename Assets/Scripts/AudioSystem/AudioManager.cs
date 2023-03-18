@@ -52,13 +52,43 @@ public class AudioManager : MonoBehaviour
 
     public List<GameObject> GetAudioPlayers()
     {
-        return audioPlayers;
+        if (audioPlayers != null)
+        {
+            return audioPlayers;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public AudioSource CreateAudioSource(int audioPlayerIndex,float volume)
     {
         AudioSource newSource = audioPlayers[audioPlayerIndex].AddComponent<AudioSource>();
         return newSource;
+    }
+
+    public List<AudioSource> CreateSubAudioSource(List<AudioClip> audioClips,int sourceIndex)
+    {
+        //Bikin list untuk di return di akhir
+        List<AudioSource> tempList = new List<AudioSource>();
+
+        //Bikin game object baru, jadiin child audio source dari salah satu 3 index utama
+        GameObject subSource = new GameObject();
+        subSource.name = "Sub Source";
+        subSource.transform.SetParent(audioPlayers[sourceIndex].transform);
+
+        //Bikin Audio Source sebanyak jumlah audio clip sekaligus masukan audio clip.
+        for (int i = 0; i < audioClips.Count; i++)
+        {
+            AudioSource tempSource = subSource.AddComponent<AudioSource>();
+            tempSource.clip = audioClips[i];
+            tempSource.volume = GameSetting.LoadSetting().audioVolume[sourceIndex];
+            //Masukan semua Audio Source itu kedalam list
+            tempList.Add(tempSource);
+        }
+        //Return list Audio Source nya
+        return tempList;
     }
 
 }

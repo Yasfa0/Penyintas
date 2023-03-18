@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -11,10 +13,17 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField] private Transform sightTarget;
     [SerializeField] private GameObject gameOverPrefab;
+    [SerializeField] private Volume volume;
+    private Vignette vignette;
+    private float vignetteIntensity;
+    private float vignetteLimit = 0.4f;
+    
     private Animator animator;
     private RuntimeAnimatorController animatorController;
 
     private bool isGameOver;
+
+    private bool isHidden;
 
     private void Awake()
     {
@@ -36,6 +45,42 @@ public class PlayerCharacter : MonoBehaviour
             transform.position = spawnPosition;
         }*/
 
+    }
+
+    private void Update()
+    {
+        //Vignette Updater
+        if (animator.GetBool("isCrouch") && isHidden)
+        {
+            if(vignetteIntensity < vignetteLimit)
+            {
+                vignetteIntensity += 1 * Time.deltaTime;
+            }
+
+            volume.profile.TryGet(out vignette);
+            {
+                vignette.intensity.value = vignetteIntensity;
+                vignette.active = true;
+            }
+        }
+        else
+        {
+            if (vignetteIntensity > 0)
+            {
+                vignetteIntensity -= 1 * Time.deltaTime;
+            }
+
+            volume.profile.TryGet(out vignette);
+            {
+                vignette.intensity.value = vignetteIntensity;
+                //vignette.active = false;
+            }
+        }
+    }
+
+    public void SetHidden(bool isHidden)
+    {
+        this.isHidden = isHidden;
     }
 
     public void TakeDamage(int damage)

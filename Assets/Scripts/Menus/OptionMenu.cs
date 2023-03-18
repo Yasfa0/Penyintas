@@ -27,8 +27,11 @@ public class OptionMenu : MonoBehaviour
 
     public void UpdateVolume(int volumeIndex)
     {
-        AudioManager.Instance.GetAudioPlayers()[volumeIndex].GetComponent<AudioSource>().volume = volumeSlider[volumeIndex].value;
-        Debug.Log("Updating Audio");
+        if (AudioManager.Instance.GetAudioPlayers()[volumeIndex] != null)
+        {
+            AudioManager.Instance.GetAudioPlayers()[volumeIndex].GetComponent<AudioSource>().volume = volumeSlider[volumeIndex].value; 
+            Debug.Log("Updating Audio");
+        }
     }
 
     public void SaveOption()

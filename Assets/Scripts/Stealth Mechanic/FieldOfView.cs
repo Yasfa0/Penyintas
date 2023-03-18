@@ -5,27 +5,29 @@ using UnityEngine.Rendering.Universal;
 
 public class FieldOfView : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
-    float fovAngle = 90f;
-    float range = 8f;
-    private Transform fovPoint;
-    private Transform target;
+    [SerializeField] protected int FOVId;
+    [SerializeField] protected int damage = 1;
+    protected float fovAngle = 70f;
+    [SerializeField] protected float range = 7f;
+    protected Transform fovPoint;
+    protected Transform target;
     public LayerMask layerMask;
-    private Light2D lightField;
+    protected Light2D lightField;
+    protected float lightIntensity;
 
-    private bool canTarget = true;
+    protected bool canTarget = true;
 
-    private bool canRotate = true;
-    private float pauseDuration = 2f;
-    private float[] rotateTarget = {270,90};
-    private int rotateIndex;
-    [SerializeField] private float rotateSpeed = 5f;
+    protected int cycleCount = 0;
+    protected int limitCounter = 0;
+    [SerializeField]  protected int limitPerCycle = 2;
 
-    private void Start()
+    protected bool isActiveFOV = true;
+
+    protected virtual void Start()
     {
         fovPoint = transform;
         lightField = GetComponent<Light2D>();
-
+        lightIntensity = lightField.intensity;
         lightField.pointLightOuterRadius = range;
         lightField.pointLightOuterAngle = fovAngle;
         lightField.pointLightInnerAngle = fovAngle;
@@ -36,29 +38,8 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        if (canRotate && !PauseMenu.Instance.GetIsPaused())
-        {
-            transform.Rotate(0, 0, rotateSpeed);
-        }
-
-        if (Mathf.Approximately(transform.localEulerAngles.z,rotateTarget[rotateIndex]))
-        {
-            StartCoroutine(PauseRotation());
-            Debug.Log("Rotate Limit");
-            rotateSpeed = -rotateSpeed;
-            if (rotateIndex >= rotateTarget.Length-1)
-            {
-                rotateIndex = 0;
-            }
-            else
-            {
-                rotateIndex++;
-            }
-        }
-
-        
 
         if (target && canTarget)
         {
@@ -79,18 +60,24 @@ public class FieldOfView : MonoBehaviour
         
     }
 
-    public IEnumerator PauseRotation()
+    public void SetIsActiveFOV(bool isActiveFOV)
     {
-        canRotate = false;
-        yield return new WaitForSeconds(0.5f);
-        canTarget = false;
-        lightField.intensity = 0;
-        yield return new WaitForSeconds(pauseDuration);
-        canTarget = true;
-        lightField.intensity = 1;
-        yield return new WaitForSeconds(0.5f);
-        canRotate = true;
+        this.isActiveFOV = isActiveFOV;
+    }
+    
+    public int GetFOVId()
+    {
+        return FOVId;
     }
 
+    public int GetCycleCount()
+    {
+        return cycleCount;
+    }
+
+    public virtual void SetCycleCount(int cycleCount)
+    {
+        this.cycleCount = cycleCount;
+    }
 
 }

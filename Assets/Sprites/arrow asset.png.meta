@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +139,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: arrow asset_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 462
+        width: 460
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c182c2811dad6714f85e83aa42d44a17
+      internalID: 1303983802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_1
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 464
+        width: 455
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3842ec75eac6d1b499605490cbda9468
+      internalID: -1416160448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 375
+        width: 263
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5af8c99669186d479ea88e8cf54ade7
+      internalID: -1260622474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_3
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 375
+        width: 263
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c6c64568d6f4049952be2f521cf0f2
+      internalID: 1474094884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 301
+        width: 263
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8a06e87fff44a4583f577c816d32f8
+      internalID: -46993985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_5
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 301
+        width: 263
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c55719b9499a6fd48a35050b73cf3404
+      internalID: 1566053511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 193
+        width: 455
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5cbf44b3e567224fb14ad78c10f86b5
+      internalID: 481186182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_7
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 193
+        width: 455
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3df8c7cb1416d4c958858898378f1a
+      internalID: 1715148125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_8
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 83
+        width: 432
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a4dabd6661d25498ad45fa07d57309
+      internalID: -2076596600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrow asset_9
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 83
+        width: 431
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 029bb1cc1912bf8428f7336781f8335a
+      internalID: 133732075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +360,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      arrow asset_0: 1303983802
+      arrow asset_1: -1416160448
+      arrow asset_9: 133732075
+      arrow asset_3: 1474094884
+      arrow asset_6: 481186182
+      arrow asset_7: 1715148125
+      arrow asset_8: -2076596600
+      arrow asset_2: -1260622474
+      arrow asset_4: -46993985
+      arrow asset_5: 1566053511
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

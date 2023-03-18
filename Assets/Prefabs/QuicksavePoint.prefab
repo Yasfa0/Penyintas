@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quicksavePrefab: {fileID: 7022673930796814032, guid: f22fe72579d28f648a4ff2df13996405, type: 3}
+  saveSFX: {fileID: 8300000, guid: 77ed9e477c226534d92d359c12d8d679, type: 3}
 --- !u!1 &322271460727794472
 GameObject:
   m_ObjectHideFlags: 0

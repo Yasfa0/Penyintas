@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveSlotButton : MonoBehaviour
 {
+    [SerializeField] AudioClip saveSFX;
     [SerializeField] private Text typeText;
     [SerializeField] private Text sceneText;
     private int slotIndex;
@@ -46,7 +47,7 @@ public class SaveSlotButton : MonoBehaviour
         tempSave.posY = pos.y;
         tempSave.health = FindObjectOfType<PlayerCharacter>().GetHealth();
         SaveSystem.SaveGame(tempSave,"save"+slotIndex);
-
+        AudioManager.Instance.PlayAudio(saveSFX,1);
         UpdateSaveSlot();
     }
 
@@ -54,9 +55,16 @@ public class SaveSlotButton : MonoBehaviour
     {
         saveData = SaveSystem.LoadSave("save" + slotIndex);
         SaveSystem.SetCurrentSaveData(saveData);
-        PlayerData.LoadFromSave();
-        Time.timeScale = 1f;
-        FindObjectOfType<SceneLoading>().LoadScene(saveData.sceneName);
+        if (SaveSystem.currentSaveData != null && DoesSceneExist(SaveSystem.currentSaveData.sceneName))
+        {
+            PlayerData.LoadFromSave();
+            //FindObjectOfType<SceneLoading>().LoadScene(SaveSystem.currentSaveData.sceneName,0);
+            //PlayerData.LoadFromSave();
+            Time.timeScale = 1f;
+            AudioManager.Instance.PlayAudio(saveSFX, 1);
+            //FindObjectOfType<SceneLoading>().LoadScene(saveData.sceneName,0);
+            FindObjectOfType<SceneLoading>().LoadScene(SaveSystem.currentSaveData.sceneName, 0);
+        }
     }
 
     public void UpdateSaveSlot()
@@ -82,4 +90,21 @@ public class SaveSlotButton : MonoBehaviour
         }
     }
 
+    public static bool DoesSceneExist(string name)
+    {
+        if (string.IsNullOrEmpty(name))
+            return false;
+
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            var scenePath = SceneUtility.GetScenePathByBuildIndex(i);
+            var lastSlash = scenePath.LastIndexOf("/");
+            var sceneName = scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1);
+
+            if (string.Compare(name, sceneName, true) == 0)
+                return true;
+        }
+
+        return false;
+    }
 }

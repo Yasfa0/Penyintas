@@ -7,6 +7,7 @@ public class QuicksaveArea : MonoBehaviour
 {
     private bool saved;
     [SerializeField] private GameObject quicksavePrefab;
+    [SerializeField] private AudioClip saveSFX;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,6 +31,7 @@ public class QuicksaveArea : MonoBehaviour
 
     public IEnumerator IndicateQuicksave()
     {
+        AudioManager.Instance.PlayAudio(saveSFX,1);
         GameObject quicksave = Instantiate(quicksavePrefab);
         yield return new WaitForSeconds(2f);
         Destroy(quicksave);
