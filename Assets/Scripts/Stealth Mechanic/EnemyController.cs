@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] List<PatrolPoint> patrolPoints;
     [SerializeField] FOVController FOVController;
+    Animator animator;
     Rigidbody2D rb;
     int patrolIndex = 0;
     bool reachedPost = false;
@@ -16,6 +17,7 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         FOVController.SetCanControl(false);
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -30,8 +32,9 @@ public class EnemyController : MonoBehaviour
             if (!reachedPost)
             {
                 //Gerak ke Pos Patrol
-                transform.position = Vector2.MoveTowards(transform.position, patrolPoints[patrolIndex].patrolPosition.position, 8 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, patrolPoints[patrolIndex].patrolPosition.position, 5 * Time.deltaTime);
                 FOVController.transform.localEulerAngles = new Vector3(FOVController.transform.localEulerAngles.x, FOVController.transform.localEulerAngles.y, patrolPoints[patrolIndex].patrolAngle);
+                animator.SetFloat("kecepatan",1f);
 
 
                 if (Mathf.Approximately(transform.position.x, patrolPoints[patrolIndex].patrolPosition.position.x))
@@ -48,6 +51,7 @@ public class EnemyController : MonoBehaviour
             }
             else if (reachedPost)
             {
+                animator.SetFloat("kecepatan", 0f);
                 //Setelah sampe dan selesai 1 siklus pengawasan
                 if (FOVController.GetCycleCount() >= 1)
                 {

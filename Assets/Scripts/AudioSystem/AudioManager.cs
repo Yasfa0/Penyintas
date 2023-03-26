@@ -47,6 +47,24 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource audioSource = audioPlayers[audioType].GetComponent<AudioSource>();
         audioSource.clip = targetClip;
+        audioSource.loop = false;
+        audioSource.Play();
+    }
+
+    public void PlayLoopingAudio(AudioClip targetClip, int audioType)
+    {
+
+        AudioSource audioSource = audioPlayers[audioType].GetComponent<AudioSource>();
+        audioSource.clip = targetClip;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    public void PlayNewAudio(AudioClip targetClip, int audioType, bool isLooping)
+    {
+        AudioSource audioSource = audioPlayers[audioType].AddComponent<AudioSource>();
+        audioSource.clip = targetClip;
+        audioSource.loop = isLooping;
         audioSource.Play();
     }
 

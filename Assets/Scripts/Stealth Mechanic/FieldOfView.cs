@@ -7,7 +7,7 @@ public class FieldOfView : MonoBehaviour
 {
     [SerializeField] protected int FOVId;
     [SerializeField] protected int damage = 1;
-    protected float fovAngle = 70f;
+    [SerializeField] protected float fovAngle = 70f;
     [SerializeField] protected float range = 7f;
     protected Transform fovPoint;
     protected Transform target;

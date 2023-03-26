@@ -28,7 +28,10 @@ public class PlayerCharacter : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        transform.position = PlayerData.GetSpawnPosition();
+        if (!Vector2.Equals(PlayerData.GetSpawnPosition(),Vector2.zero))
+        {
+            transform.position = PlayerData.GetSpawnPosition();
+        }
         animator = GetComponent<Animator>();
         animatorController = animator.runtimeAnimatorController;
 
@@ -50,7 +53,7 @@ public class PlayerCharacter : MonoBehaviour
     private void Update()
     {
         //Vignette Updater
-        if (animator.GetBool("isCrouch") && isHidden)
+        if (animator.GetBool("canCrouch") && isHidden)
         {
             if(vignetteIntensity < vignetteLimit)
             {
@@ -92,6 +95,8 @@ public class PlayerCharacter : MonoBehaviour
             //Jalanin animasi mati
             playerMovement.SetCanMove(false);
             playerMovement.StopMovement();
+            playerMovement.SetPlayerDead(true);
+            //animator.SetBool("isDead",true);
             //SceneManager.LoadScene("GameOver");
             Instantiate(gameOverPrefab);
         }

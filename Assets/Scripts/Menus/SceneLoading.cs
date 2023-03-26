@@ -8,6 +8,9 @@ public class SceneLoading : MonoBehaviour
 {
     [SerializeField] private List<GameObject> loadingScreen;
     [SerializeField] private GameObject blackScreen;
+    private float delay = 0.5f;
+    private bool delayDone = false;
+    bool canLoad = true;
 
     private void Awake()
     {
@@ -24,22 +27,34 @@ public class SceneLoading : MonoBehaviour
         AsyncOperation loadAsync = SceneManager.LoadSceneAsync(sceneName);
 
         loadingScreen[typeIndex].SetActive(true);
-        if (!loadAsync.isDone)
+        while (!loadAsync.isDone && canLoad)
         {
             //float progress = Mathf.Clamp01(loadAsync.progress / 0.9f);
-            float progress = Mathf.Clamp01(loadAsync.progress);
+            float progress = Mathf.Clamp01(loadAsync.progress /.9f);
             Debug.Log("Progress " + progress);
             loadingScreen[typeIndex].GetComponentInChildren<Slider>().value = progress;
+            if (!delayDone && progress >= 0.7f)
+            {
+                StartCoroutine(Delay());
+            }
             yield return null;
         }
-        if (FindObjectOfType<PlayerMovement>())
+        /*if (FindObjectOfType<PlayerMovement>())
         {
             FindObjectOfType<PlayerMovement>().SetCanMove(true);
         }
         if (FindObjectOfType<PauseMenu>())
         {
             FindObjectOfType<PauseMenu>().SetIsPause(false);
-        }
+        }*/
+    }
+
+    public IEnumerator Delay()
+    {
+        canLoad = false;
+        yield return new WaitForSeconds(delay);
+        delayDone = true;
+        canLoad = true;
     }
 
     public IEnumerator FadeBlackScreen(string anim,bool visible)

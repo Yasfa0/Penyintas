@@ -37,6 +37,7 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -238,4 +239,28 @@ public class DialogueController : MonoBehaviour
        currentSpeaker = speaker;
     }
 
+    public GameObject GetDialogueBox()
+    {
+        return dialogueBox;
+    }
+
+    public Text GetDialogueText()
+    {
+        return dialogueText;
+    }
+
+    public Text GetNameText()
+    {
+        return nameText;
+    }
+
+    public Transform GetChoicePanel()
+    {
+        return choicePanel;
+    }
+
+    public GameObject GetChoicePrefab()
+    {
+        return choiceBoxPrefab;
+    }
 }

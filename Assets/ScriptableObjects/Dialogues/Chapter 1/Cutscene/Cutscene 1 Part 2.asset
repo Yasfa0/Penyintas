@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - name: Djoko
-    dialogue: Oh sial, mereka masih saja berkeliling setelah menang..
+    dialogue: Tubuhku penuh luka..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
-    dialogue: Sebenarnya apa yang mereka lakukan?
+    dialogue: Sulit untuk bergerak..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   choices: []
   eventIndex: 1

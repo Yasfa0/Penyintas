@@ -15,11 +15,12 @@ MonoBehaviour:
   dialogues:
   - name: Djoko
     dialogue: Ukh..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Aku masih selamat..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Jadi tadi hanya pingsan.
-  - name: Djoko
-    dialogue: Tubuhku penuh luka, sulit untuk bergerak...
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   choices: []
   eventIndex: 0

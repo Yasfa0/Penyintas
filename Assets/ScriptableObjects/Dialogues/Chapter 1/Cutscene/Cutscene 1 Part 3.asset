@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - name: Djoko
-    dialogue: Pertama aku harus pergi dari area ini dulu
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    dialogue: Oh sial, mereka masih saja berkeliling setelah menang..
   - name: Djoko
-    dialogue: Setelah itu baru cari obat penyembuh
-    textColor: {r: 1, g: 1, b: 1, a: 1}
-  - name: Djoko
-    dialogue: Jalan terdekat sepertinya menuju kedalam hutan itu.
-    textColor: {r: 1, g: 1, b: 1, a: 1}
+    dialogue: Sebenarnya apa yang mereka lakukan?
   choices: []
-  eventIndex: 2
+  eventIndex: 1

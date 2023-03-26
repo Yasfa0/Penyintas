@@ -27,10 +27,10 @@ public class asalsekri : MonoBehaviour
         {
             transform.rotation = -kecepatan > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
             tanganKanan.sortingOrder = 33;
-            tanganKiri.sortingOrder = 8;
+            tanganKiri.sortingOrder = 23;
             if(transform.rotation == Quaternion.Euler(0, 180, 0))
             {
-                tanganKanan.sortingOrder = 8;
+                tanganKanan.sortingOrder = 23;
                 tanganKiri.sortingOrder = 33;
             }
         }

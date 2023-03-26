@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Tangan Kanan
+    m_Hash: 447130956
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Dekil
+      m_Hash: 319870969
+      m_Sprite: {fileID: -51184316362132015, guid: ab0acb2d6e01dd246bf3a01c73b6a3d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -51184316362132015, guid: ab0acb2d6e01dd246bf3a01c73b6a3d9, type: 3}
+    - m_Name: Luka
+      m_Hash: 503345536
+      m_Sprite: {fileID: -2602876785568814933, guid: bfed1fced812a604884d667523bef0a5, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2602876785568814933, guid: bfed1fced812a604884d667523bef0a5, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  - m_Name: Tangan Kiri
+    m_Hash: 801138932
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Dekil
+      m_Hash: 319870969
+      m_Sprite: {fileID: -4314943631282455685, guid: ab0acb2d6e01dd246bf3a01c73b6a3d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4314943631282455685, guid: ab0acb2d6e01dd246bf3a01c73b6a3d9, type: 3}
+    - m_Name: Luka
+      m_Hash: 503345536
+      m_Sprite: {fileID: 7828842859906447454, guid: ab0acb2d6e01dd246bf3a01c73b6a3d9, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7828842859906447454, guid: ab0acb2d6e01dd246bf3a01c73b6a3d9, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 2
+  m_PrimaryLibraryGUID: 

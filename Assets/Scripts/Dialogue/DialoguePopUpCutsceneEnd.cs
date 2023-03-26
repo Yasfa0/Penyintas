@@ -25,6 +25,11 @@ public class DialoguePopUpCutsceneEnd : MonoBehaviour, IDialogueEvent
         //cutsceneManager.gameObject.SetActive(false);
         cutsceneManager.StopAllTimeline();
         cutsceneManager.EndCutscene();
+        if (FindObjectOfType<PauseMenu>())
+        {
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+            FindObjectOfType<PauseMenu>().SetCanPause(true);
+        }
         Instantiate(popUpPrefab);
     }
 }

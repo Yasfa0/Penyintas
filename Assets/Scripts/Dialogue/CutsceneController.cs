@@ -33,7 +33,17 @@ public class CutsceneController : MonoBehaviour
 
     public void PlayTimeline(int directorIndex)
     {
-
+        if (FindObjectOfType<PlayerCharacter>())
+        {
+            Debug.Log("Player Movement False");
+            FindObjectOfType<PlayerMovement>().SetCanMove(false);
+            FindObjectOfType<PlayerMovement>().StopMovement();
+        }
+        if (FindObjectOfType<PauseMenu>())
+        {
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(false);
+            FindObjectOfType<PauseMenu>().SetCanPause(false);
+        }
         StopAllTimeline();
         timelines[directorIndex].Play();
     }

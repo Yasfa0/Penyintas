@@ -52,7 +52,8 @@ public class MainMenuController : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(FindObjectOfType<Button>().gameObject);
         }
 
-        AudioManager.Instance.PlayAudio(menuMusic, 0);
+        //AudioManager.Instance.PlayAudio(menuMusic, 0);
+        AudioManager.Instance.PlayLoopingAudio(menuMusic,0);
         blur.SetActive(true);
         blur.GetComponent<Animator>().SetBool("blurOut",true);
     }

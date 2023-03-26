@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 366ce9a94c9bee3449eb44a0d00b2bd5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Dummy Scenes/DayNightCycle.unity
     guid: d098abd5d7b626746918c738667312c3
   - enabled: 1

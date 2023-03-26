@@ -15,21 +15,30 @@ MonoBehaviour:
   dialogues:
   - name: Djoko
     dialogue: Ukh..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Aku masih selamat..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Jadi tadi hanya pingsan.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Tubuhku penuh luka, sulit untuk bergerak...
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Oh sial, mereka masih saja berkeliling setelah menang..
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Sebenarnya apa yang mereka lakukan?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Pertama aku harus pergi dari area ini dulu
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Setelah itu baru cari obat penyembuh
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   - name: Djoko
     dialogue: Jalan terdekat sepertinya menuju kedalam hutan itu.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   choices: []
-  eventIndex: -1
+  eventIndex: 0
