@@ -10,10 +10,12 @@ public class DialogueController : MonoBehaviour
     public static DialogueController Instance { get; private set; }
 
     [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private Button skipButton;
     [SerializeField] private Text dialogueText;
     [SerializeField] private Text nameText;
     [SerializeField] private Transform choicePanel;
     [SerializeField] private GameObject choiceBoxPrefab;
+    //[SerializeField] private GameObject skipButton;
 
     //[SerializeField] public List<DialogueScriptable> dialogueList = new List<DialogueScriptable>();
     List<DialogueScriptable> dialogueList = new List<DialogueScriptable>();
@@ -35,12 +37,20 @@ public class DialogueController : MonoBehaviour
         {
             Instance = this;
         }
+
+        if (KeybindSaveSystem.LoadKeybind() == null)
+        {
+            ControlKeybind defaultKeybind = new ControlKeybind();
+            KeybindSaveSystem.SaveKeybind(defaultKeybind);
+        }
+
+        KeybindSaveSystem.SetCurrentKeybind(KeybindSaveSystem.LoadKeybind());
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeybindSaveSystem.currentKeybind.interact))
         {
 
             if (talking && doneWriting && !selectingChoice)
@@ -55,6 +65,9 @@ public class DialogueController : MonoBehaviour
     {
         dialogueBox.SetActive(true);
         talking = true;
+
+        skipButton.onClick.RemoveAllListeners();
+        skipButton.onClick.AddListener(delegate { SkipDialogue(); });
 
         if (FindObjectOfType<PlayerCharacter>())
         {
@@ -85,6 +98,9 @@ public class DialogueController : MonoBehaviour
     {
         dialogueBox.SetActive(true);
         talking = true;
+
+        skipButton.onClick.RemoveAllListeners();
+        skipButton.onClick.AddListener(delegate { SkipDialogue(); });
 
         if (FindObjectOfType<PlayerCharacter>())
         {
@@ -184,6 +200,13 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+    public void SkipDialogue()
+    {
+        Debug.Log("Skip Dialogue");
+        Debug.Log("Current Speaker : " + currentSpeaker);
+        StartCoroutine(EndDialogue());
+    }
+
     public IEnumerator EndDialogue()
     {
         currentSpeaker.ExecuteEvent(dialogueList[dialogueRoute].eventIndex);
@@ -247,6 +270,11 @@ public class DialogueController : MonoBehaviour
     public Text GetDialogueText()
     {
         return dialogueText;
+    }
+
+    public Button GetSkipButton()
+    {
+        return skipButton;
     }
 
     public Text GetNameText()

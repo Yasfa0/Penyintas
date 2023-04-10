@@ -9,7 +9,8 @@ public class PlayerCharacter : MonoBehaviour
 {
     private PlayerMovement playerMovement;
     
-    private int health = 1;
+    [SerializeField] private int health = 1;
+    private bool immune = false;
 
     [SerializeField] private Transform sightTarget;
     [SerializeField] private GameObject gameOverPrefab;
@@ -25,6 +26,11 @@ public class PlayerCharacter : MonoBehaviour
 
     private bool isHidden;
 
+    [SerializeField] float kecepatanInjured = 1f;
+    [SerializeField] float kecepatanHealthy = 2f;
+    [SerializeField] private List<GameObject> injuredHands = new List<GameObject>();
+    [SerializeField] private List<GameObject> healthyHands = new List<GameObject>();
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -32,6 +38,8 @@ public class PlayerCharacter : MonoBehaviour
         {
             transform.position = PlayerData.GetSpawnPosition();
         }
+
+        //health = PlayerData.GetHealth();
         animator = GetComponent<Animator>();
         animatorController = animator.runtimeAnimatorController;
 
@@ -48,10 +56,34 @@ public class PlayerCharacter : MonoBehaviour
             transform.position = spawnPosition;
         }*/
 
+        //Kalau nggak ada custom keybind, balik ke setting default 
+        if (KeybindSaveSystem.LoadKeybind() == null)
+        {
+            ControlKeybind defaultKeybind = new ControlKeybind();
+            KeybindSaveSystem.SaveKeybind(defaultKeybind);
+        }
+
+        KeybindSaveSystem.SetCurrentKeybind(KeybindSaveSystem.LoadKeybind());
+    }
+
+
+    private void Start()
+    {
+        UpdateHealthAnim();
     }
 
     private void Update()
     {
+        //Untuk testing doang
+        /*if (Input.GetKey(KeyCode.Alpha1))
+        {
+            SetHealth(1);
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            SetHealth(2);
+        }*/
+
         //Vignette Updater
         if (animator.GetBool("canCrouch") && isHidden)
         {
@@ -88,18 +120,30 @@ public class PlayerCharacter : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0 && !isGameOver)
+        if (!immune)
         {
-            isGameOver = true;
-            //Jalanin animasi mati
-            playerMovement.SetCanMove(false);
-            playerMovement.StopMovement();
-            playerMovement.SetPlayerDead(true);
-            //animator.SetBool("isDead",true);
-            //SceneManager.LoadScene("GameOver");
-            Instantiate(gameOverPrefab);
+            health -= damage;
+            if (health <= 0 && !isGameOver)
+            {
+                isGameOver = true;
+                //Jalanin animasi mati
+                playerMovement.SetCanMove(false);
+                playerMovement.StopMovement();
+                playerMovement.SetPlayerDead(true);
+                animator.SetBool("isDead",true);
+                //SceneManager.LoadScene("GameOver");
+                Instantiate(gameOverPrefab);
+            }
+
+            UpdateHealthAnim();
         }
+        
+    }
+
+    public void SetHealth(int health)
+    {
+        this.health = health;
+        UpdateHealthAnim();
     }
 
     public int GetHealth()
@@ -121,5 +165,52 @@ public class PlayerCharacter : MonoBehaviour
     {
         animator.runtimeAnimatorController = animatorController;
     }
+
+    public void UpdateHealthAnim()
+    {
+        bool injuHand = false;
+        bool healthHand = false;
+        if(health == 1)
+        {
+            //Injured
+            animator.SetTrigger("isInjured");
+            animator.ResetTrigger("Healthy");
+            injuHand = true;
+            GetComponent<PlayerMovement>().SetKecepatanMaks(kecepatanInjured);
+            
+        }
+        else if(health >= 2)
+        {
+            //Healthy
+            animator.SetTrigger("Healthy");
+            animator.ResetTrigger("isInjured");
+            healthHand = true;
+            GetComponent<PlayerMovement>().SetKecepatanMaks(kecepatanHealthy);
+        }
+
+
+        foreach (GameObject injuredHand in injuredHands)
+        {
+            injuredHand.SetActive(injuHand);
+        }
+        foreach (GameObject healthyHand in healthyHands)
+        {
+            healthyHand.SetActive(healthHand);
+        }
+
+        GetComponent<PlayerMovement>().SetCanJump(healthHand);
+        GetComponent<PlayerMovement>().SetCanRun(healthHand);
+    }
+
+    public void SetImmune(bool immune)
+    {
+        this.immune = immune;
+    }
+
+    public bool GetImmune()
+    {
+        return immune;
+    }
+
 
 }

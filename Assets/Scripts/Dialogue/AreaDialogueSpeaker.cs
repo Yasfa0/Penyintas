@@ -16,4 +16,9 @@ public class AreaDialogueSpeaker : DialogueSpeaker
             dialogueTriggered = true; 
         }
     }
+
+    public void SetDialogueTrigger(bool val)
+    {
+        dialogueTriggered = val;
+    }
 }

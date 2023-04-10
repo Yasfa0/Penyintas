@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     int patrolIndex = 0;
     bool reachedPost = false;
     bool canControl = true;
+    bool triggerCheck = false;
 
     private void Awake()
     {
@@ -52,6 +53,19 @@ public class EnemyController : MonoBehaviour
             else if (reachedPost)
             {
                 animator.SetFloat("kecepatan", 0f);
+                
+                if (GetComponent<PatrolBubbleTrigger>() && !triggerCheck)
+                {
+                    foreach (PatrolBubbleTrigger trigger in GetComponents<PatrolBubbleTrigger>())
+                    {
+                        if (trigger.GetPatrolIndex() == patrolIndex)
+                        {
+                            trigger.TriggerBubble();
+                        }
+                    }
+                    triggerCheck = true;
+                }
+
                 //Setelah sampe dan selesai 1 siklus pengawasan
                 if (FOVController.GetCycleCount() >= 1)
                 {
@@ -64,7 +78,8 @@ public class EnemyController : MonoBehaviour
                     {
                         patrolIndex = 0;
                     }
-                    Debug.Log("Patrol Index " + patrolIndex);
+                    triggerCheck = false;
+                    //Debug.Log("Patrol Index " + patrolIndex);
                 }
             }
         }

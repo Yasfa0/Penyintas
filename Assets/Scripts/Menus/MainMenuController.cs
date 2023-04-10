@@ -52,6 +52,15 @@ public class MainMenuController : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(FindObjectOfType<Button>().gameObject);
         }
 
+        //Set default keybind kalau belom ada keybind sama sekali
+        if (KeybindSaveSystem.LoadKeybind() == null)
+        {
+            ControlKeybind defaultKeybind = new ControlKeybind();
+            KeybindSaveSystem.SaveKeybind(defaultKeybind);
+            KeybindSaveSystem.SetCurrentKeybind(KeybindSaveSystem.LoadKeybind());
+            Debug.Log("Keybind set to default");
+        }
+
         //AudioManager.Instance.PlayAudio(menuMusic, 0);
         AudioManager.Instance.PlayLoopingAudio(menuMusic,0);
         blur.SetActive(true);
@@ -80,6 +89,8 @@ public class MainMenuController : MonoBehaviour
     public void NewGame()
     {
         AudioManager.Instance.PlayAudio(buttonSound, 1);
+        PlayerData.SetSpawnPosition(new Vector2(0,0));
+        PlayerData.SetHealth(1);
         FindObjectOfType<SceneLoading>().LoadScene(firstStage,1);
     }
 
@@ -135,6 +146,7 @@ public class MainMenuController : MonoBehaviour
         optionPanel.SetActive(true);
 
         FindObjectOfType<OptionMenu>().SetupOption();
+        //FindObjectOfType<KeybindOption>().SetupControlOption();
         EventSystem.current.SetSelectedGameObject(FindObjectOfType<Button>().gameObject);
     }
 

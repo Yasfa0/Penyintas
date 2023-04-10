@@ -45,5 +45,16 @@ public class DistractionProp : InteractiveProp
                 distractEffect.DistractedAction();
             }
         }
+
+        if (GetComponent<BubbleTrigger>())
+        {
+            foreach (BubbleTrigger trigger in GetComponents<BubbleTrigger>())
+            {
+                if (trigger.GetTriggerID() == distractionID)
+                {
+                    trigger.TriggerBubble();
+                }
+            }
+        }
     }
 }

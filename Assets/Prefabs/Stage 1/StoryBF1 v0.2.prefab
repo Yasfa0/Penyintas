@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 946714335177428614}
   - component: {fileID: 946714335177428617}
   - component: {fileID: 946714335177428620}
-  - component: {fileID: 1122098594761304345}
+  - component: {fileID: 6821087796650835117}
   m_Layer: 0
   m_Name: OpeningTimeline
   m_TagString: Untagged
@@ -289,7 +289,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2090642, y: 6.3064475}
   m_EdgeRadius: 0
---- !u!114 &1122098594761304345
+--- !u!114 &6821087796650835117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

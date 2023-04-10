@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 366ce9a94c9bee3449eb44a0d00b2bd5
-  - enabled: 0
-    path: Assets/Scenes/Dummy Scenes/DayNightCycle.unity
-    guid: d098abd5d7b626746918c738667312c3
   - enabled: 1
     path: Assets/Scenes/Dummy Scenes/Dummy Enemy Level.unity
     guid: 36d6dee0d8dbded4cae41638df0d1810
@@ -22,5 +19,8 @@ EditorBuildSettings:
     guid: 398d4f98f17f84240b85ab86c2099025
   - enabled: 1
     path: Assets/Scenes/Stage/Stage 2.unity
-    guid: fc24c52d17ac24d49aa88782dc203d6c
+    guid: b019df684c506ab4d8e05e4d0f953b62
+  - enabled: 1
+    path: Assets/Scenes/Stage/SceneJatuh.unity
+    guid: 74759be4cc02e1242a95cf997b40969c
   m_configObjects: {}

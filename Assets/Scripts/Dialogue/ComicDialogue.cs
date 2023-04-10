@@ -10,6 +10,7 @@ public class ComicDialogue : MonoBehaviour
     private PlayableDirector playableDirector;
 
     private GameObject dialogueBox;
+    private Button skipButton;
     private Text dialogueText;
     private Text nameText;
     private Transform choicePanel;
@@ -25,6 +26,8 @@ public class ComicDialogue : MonoBehaviour
     private bool selectingChoice = false;
     private DialogueSpeaker currentSpeaker;
 
+    [SerializeField] private GameObject comicCanvas;
+
     private void Awake()
     {
         playableDirector = GetComponent<PlayableDirector>();
@@ -36,6 +39,7 @@ public class ComicDialogue : MonoBehaviour
         {
             choicePanel = DialogueController.Instance.GetChoicePanel();
             dialogueBox = DialogueController.Instance.GetDialogueBox();
+            skipButton = DialogueController.Instance.GetSkipButton();
             dialogueText = DialogueController.Instance.GetDialogueText();
             nameText = DialogueController.Instance.GetNameText();
             choiceBoxPrefab = DialogueController.Instance.GetChoicePrefab();
@@ -44,7 +48,7 @@ public class ComicDialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeybindSaveSystem.currentKeybind.interact))
         {
 
             if (talking && doneWriting && !selectingChoice)
@@ -53,6 +57,11 @@ public class ComicDialogue : MonoBehaviour
             }
 
         }
+
+        /*if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            SkipDialogue(0);
+        }*/
     }
 
     /*public void SetupDialogue(List<DialogueScriptable> dialogues)
@@ -90,6 +99,9 @@ public class ComicDialogue : MonoBehaviour
         dialogueBox.SetActive(true);
         talking = true;
         playableDirector.Pause();
+
+        skipButton.onClick.RemoveAllListeners();
+        skipButton.onClick.AddListener(delegate { SkipDialogue(0); });
 
         if (FindObjectOfType<PlayerCharacter>())
         {
@@ -176,6 +188,44 @@ public class ComicDialogue : MonoBehaviour
         selectingChoice = true;
     }
 
+    public void SkipDialogue(int endingIndex)
+    {
+        StopComic();
+
+        foreach (IDialogueEvent dialogueEvent in GetComponentsInParent<IDialogueEvent>())
+        {
+            if (dialogueEvent.GetEventId() == endingIndex)
+            {
+                dialogueEvent.StartEvent();
+            }
+        }
+    }
+
+
+    public void StopComic()
+    {
+        comicCanvas.SetActive(false);
+
+        dialogueRoute = 0;
+        dialogueIndex = 0;
+        dialogueBox.SetActive(false);
+        talking = false;
+        Debug.Log("Ending dialogue");
+        //Dummy doang. Nanti hapus setelah ada kodingan player
+        if (FindObjectOfType<PlayerMovement>())
+        {
+            Debug.Log("Player Movement True");
+            FindObjectOfType<PlayerMovement>().SetCanMove(true);
+            FindObjectOfType<PlayerMovement>().ResetSpeed();
+        }
+
+        if (FindObjectOfType<PauseMenu>())
+        {
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+            FindObjectOfType<PauseMenu>().SetCanPause(true);
+        }
+    }
+
     public void EraseChoice()
     {
         foreach (var choiceButton in choicePanel.GetComponentsInChildren<ChoiceButton>())
@@ -207,6 +257,30 @@ public class ComicDialogue : MonoBehaviour
             //FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
             FindObjectOfType<PauseMenu>().SetCanPause(true);
         }*/
+    }
+
+    public IEnumerator EndAllDialogue()
+    {
+        //currentSpeaker.ExecuteEvent(dialogueList[dialogueRoute].eventIndex);
+        dialogueRoute = 0;
+        dialogueIndex = 0;
+        dialogueBox.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        talking = false;
+        Debug.Log("Ending dialogue");
+        //Dummy doang. Nanti hapus setelah ada kodingan player
+        if (FindObjectOfType<PlayerMovement>())
+        {
+            Debug.Log("Player Movement True");
+            FindObjectOfType<PlayerMovement>().SetCanMove(true);
+            FindObjectOfType<PlayerMovement>().ResetSpeed();
+        }
+
+        if (FindObjectOfType<PauseMenu>())
+        {
+            //FindObjectOfType<PauseMenu>().PauseButtonVisibility(true);
+            FindObjectOfType<PauseMenu>().SetCanPause(true);
+        }
     }
 
     public void ApplyChoice(int route)

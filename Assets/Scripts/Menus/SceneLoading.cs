@@ -14,11 +14,15 @@ public class SceneLoading : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(FadeBlackScreen("FadeIn", false));   
+        FadeToBlack();   
     }
 
     public void LoadScene(string sceneName, int typeIndex)
     {
+        if (FindObjectOfType<PlayerCharacter>())
+        {
+            FindObjectOfType<PlayerCharacter>().SetImmune(true);
+        }
         StartCoroutine(LoadingScreen(sceneName,typeIndex));
     }
 
@@ -39,14 +43,6 @@ public class SceneLoading : MonoBehaviour
             }
             yield return null;
         }
-        /*if (FindObjectOfType<PlayerMovement>())
-        {
-            FindObjectOfType<PlayerMovement>().SetCanMove(true);
-        }
-        if (FindObjectOfType<PauseMenu>())
-        {
-            FindObjectOfType<PauseMenu>().SetIsPause(false);
-        }*/
     }
 
     public IEnumerator Delay()
@@ -55,6 +51,11 @@ public class SceneLoading : MonoBehaviour
         yield return new WaitForSeconds(delay);
         delayDone = true;
         canLoad = true;
+    }
+
+    public void FadeToBlack()
+    {
+        StartCoroutine(FadeBlackScreen("FadeIn", false));
     }
 
     public IEnumerator FadeBlackScreen(string anim,bool visible)

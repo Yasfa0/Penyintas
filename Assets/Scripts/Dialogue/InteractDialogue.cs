@@ -8,7 +8,7 @@ public class InteractDialogue : DialogueSpeaker
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canInteract)
+        if (Input.GetKeyDown(KeybindSaveSystem.currentKeybind.interact) && canInteract)
         {
             if (!DialogueController.Instance.GetTalking())
             {

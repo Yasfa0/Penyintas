@@ -26,4 +26,14 @@ public static class PlayerData
     {
         return spawnPosition;
     }
+
+    public static void SetHealth(int val)
+    {
+        health = val;
+    }
+
+    public static int GetHealth()
+    {
+        return health;
+    }
 }

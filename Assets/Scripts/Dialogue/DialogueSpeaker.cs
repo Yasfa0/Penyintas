@@ -23,13 +23,22 @@ public class DialogueSpeaker : MonoBehaviour
 
     public void ExecuteEvent(int eventIndex)
     {
+        List<IDialogueEvent> executedEvents = new List<IDialogueEvent>();
+
         foreach (IDialogueEvent dialogueEvent in GetComponents<IDialogueEvent>())
         {
             if (dialogueEvent.GetEventId() == eventIndex)
             {
-                dialogueEvent.StartEvent();
+                //dialogueEvent.StartEvent();
+                executedEvents.Add(dialogueEvent);
             }
         }
+
+        foreach (IDialogueEvent exEvent in executedEvents)
+        {
+            exEvent.StartEvent();
+        }
+
     } 
 
 }

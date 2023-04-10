@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private static bool canMove = true;
 
     //[SerializeField] private float speed = 3f;
-    //[SerializeField] private float jumpStrength = 200f;
+    [SerializeField] private float jumpStrength = 200f;
 
     [Header("Character Attribute")]
     Rigidbody2D rb;
@@ -18,9 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Character Speed with Acceleration System")]
     float kecepatan = 0f;
-    public float kecepatanMaks = 1f;
+    float kecepatanMaks = 1f;
+    float initKecepatan;
     float Akselerasi = 2f;
     float Deselerasi = 10f;
+    float initAksel,initDecel;
+    float runAksel, runDecel;
     [Space(10)]
 
     [Header("Sprite")]
@@ -34,9 +37,14 @@ public class PlayerMovement : MonoBehaviour
     DetectGrab detect;
     [Space(10)]
 
+    [Header("Jumping")]
+    int jumpLimit = 1;
+    int jumpCounter;
+
     bool bisaJongkok;
     bool playerDead;
     bool isGrabbing;
+    bool canJump, canRun = false;
 
     //float move;
 
@@ -46,6 +54,10 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         detect = GetComponentInChildren<DetectGrab>();
         tanganKiriIK = transform.Find("Tangan Kiri");
+        initAksel = Akselerasi;
+        initDecel = Deselerasi;
+        runAksel = initAksel * 2;
+        runDecel = initDecel * 2;
     }
 
     // Start is called before the first frame update
@@ -99,19 +111,13 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Speed", Mathf.Abs(move * speed));
         }*/
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("canMove" + canMove);
-            Debug.Log("kecepatan" + kecepatan);
-        }
-
         anim.SetBool("isDead", playerDead); // animasi player mati
 
         if (canMove && !PauseMenu.Instance.GetIsPaused())
         {
             if (!playerDead)
             {
-                if (kecepatanMaks != 1)
+                if (kecepatanMaks != 1 && anim.GetBool("isInjured"))
                     anim.SetFloat("kecepatan", kecepatanMaks - 0.3f); // kecepatan animasi jika kecepatan player dinaikkan
                 else
                     anim.SetFloat("kecepatan", 1);
@@ -132,10 +138,63 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
                 PlayerMove();
+                PlayerJump();
+                PlayerRun();
                 GrabObject();
             }
         }
 
+    }
+
+    void PlayerJump()
+    {
+        if (Input.GetKeyDown(KeybindSaveSystem.currentKeybind.jump) && canJump && jumpCounter < jumpLimit)
+        {
+            jumpCounter++;
+            anim.SetBool("isJump",true);
+        }
+    }
+
+    public void JumpForce()
+    {
+        rb.AddForce(new Vector2(rb.velocity.x, jumpStrength));
+    }
+
+    public void PlayerRun()
+    {
+        if (canRun)
+        {
+            if (Input.GetKey(KeybindSaveSystem.currentKeybind.run) && !anim.GetBool("canCrouch"))
+            {
+                //kecepatan = 3.7f;
+                kecepatanMaks = 6f;
+                Akselerasi = runAksel;
+                Deselerasi = runDecel;
+            }
+            else
+            {
+                kecepatanMaks = initKecepatan;
+                Akselerasi = initAksel;
+                Deselerasi = initDecel;
+            }
+
+            /*if (Input.GetKeyUp(KeybindSaveSystem.currentKeybind.run) || anim.GetBool("canCrouch"))
+            {
+                //kecepatan = initKecepatan;
+                kecepatanMaks = initKecepatan;
+                Akselerasi = initAksel;
+                Deselerasi = initDecel;
+            }*/
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            anim.SetBool("isJump", false);
+            jumpCounter = 0;
+        }
     }
 
     void PlayerMove()
@@ -145,11 +204,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("canCrouch", bisaJongkok);
 
         //Gerak Kiri Kanan
-        if (Input.GetKey(KeyCode.A) && (kecepatan > -kecepatanMaks))
+        if (Input.GetKey(KeybindSaveSystem.currentKeybind.moveLeft) && (kecepatan > -kecepatanMaks))
         {
             kecepatan = kecepatan - Akselerasi * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.D) && (kecepatan < kecepatanMaks))
+        else if (Input.GetKey(KeybindSaveSystem.currentKeybind.moveRight) && (kecepatan < kecepatanMaks))
         {
             kecepatan = kecepatan + Akselerasi * Time.deltaTime;
         }
@@ -171,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector2(transform.position.x + kecepatan * Time.deltaTime, transform.position.y);
 
         //Jongkok
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeybindSaveSystem.currentKeybind.crouch))
         {
             bisaJongkok = true;
         }
@@ -180,7 +239,7 @@ public class PlayerMovement : MonoBehaviour
             //bisaJongkok = false;
         }
 
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeybindSaveSystem.currentKeybind.crouch))
         {
             bisaJongkok = false;
         }
@@ -191,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (detect.grabableObject != null && tanganKiriIK != null)
         {
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeybindSaveSystem.currentKeybind.grab))
             {
                 tanganKiriTerluka.enabled = false;
                 tanganKiri.SetActive(true);
@@ -201,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
                 detect.grabableObject.parent = this.transform;
             }
 
-            if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.E))
+            if (Input.GetKeyUp(KeybindSaveSystem.currentKeybind.grab))
             {
                 tanganKiriTerluka.enabled = true;
                 tanganKiri.SetActive(false);
@@ -216,7 +275,11 @@ public class PlayerMovement : MonoBehaviour
         if (detect.grabableObject == null)
         {
             tanganKiriTerluka.enabled = true;
-            tanganKiri.SetActive(false);
+            if (anim.GetBool("isInjured"))
+            {
+                tanganKiri.SetActive(false);
+            }
+            
             tanganKiriIK.parent = this.transform;
             isGrabbing = false;
         }
@@ -239,7 +302,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetSpeed()
     {
-        kecepatan = 3f;
+        //kecepatan = 1;
         //anim.SetFloat("Speed", Mathf.Abs(move * speed));
     }
 
@@ -252,4 +315,33 @@ public class PlayerMovement : MonoBehaviour
     {
         return canMove;
     }
+
+
+    public bool GetCanJump()
+    {
+        return canJump;
+    }
+
+    public bool GetCanRun()
+    {
+        return canRun;
+    }
+
+    public void SetCanJump(bool canJump)
+    {
+        this.canJump = canJump;
+    }
+
+
+    public void SetCanRun(bool canRun)
+    {
+        this.canRun = canRun;
+    }
+
+    public void SetKecepatanMaks(float speed)
+    {
+        kecepatanMaks = speed;
+        initKecepatan = speed;
+    }
+
 }

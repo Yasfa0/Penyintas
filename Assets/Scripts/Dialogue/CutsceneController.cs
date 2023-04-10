@@ -62,11 +62,11 @@ public class CutsceneController : MonoBehaviour
         //FindObjectOfType<PlayerCharacter>().gameObject.SetActive(false);
         playerCharacter.GetComponent<PlayerMovement>().StopMovement();
         playerCharacter.GetComponent<PlayerMovement>().SetCanMove(false);
-        playerCharacter.GetComponent<Animator>().SetFloat("Speed",0);
-        playerCharacter.GetComponent<Animator>().SetBool("isCrouch",false);
+        //playerCharacter.GetComponent<Animator>().SetFloat("Speed",0);
+        //playerCharacter.GetComponent<Animator>().SetBool("isCrouch",false);
         playerCharacter.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        playerCutsceneDummy.transform.position = playerCharacter.transform.position;
-        playerCharacter.SetActive(false);
+        //playerCutsceneDummy.transform.position = playerCharacter.transform.position;
+        //playerCharacter.SetActive(false);
     }
 
     public void EndCutscene()
@@ -74,10 +74,10 @@ public class CutsceneController : MonoBehaviour
         //FindObjectOfType<PlayerCharacter>().ReassignAnimController();
         //FindObjectOfType<PlayerCharacter>().gameObject.SetActive(true);
         playerCharacter.SetActive(true);
-        playerCharacter.transform.position = playerCutsceneDummy.transform.position;
+        //playerCharacter.transform.position = playerCutsceneDummy.transform.position;
         playerCharacter.GetComponent<PlayerMovement>().SetCanMove(true);
         playerCharacter.GetComponent<PlayerMovement>().ResetSpeed();
-        playerCutsceneDummy.SetActive(false);
+        //playerCutsceneDummy.SetActive(false);
         FindObjectOfType<CameraFollowTarget>().SetCanFollow(true);
         FindObjectOfType<Camera>().orthographicSize = 5;
     }
