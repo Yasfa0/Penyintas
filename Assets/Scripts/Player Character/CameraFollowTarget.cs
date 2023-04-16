@@ -12,10 +12,12 @@ public class CameraFollowTarget : MonoBehaviour
 
     private void Awake()
     {
-        if (FindObjectOfType<PlayerCharacter>())
+        /*if (FindObjectOfType<PlayerCharacter>())
         {
             player = FindObjectOfType<PlayerCharacter>().transform;
-        }
+        }*/
+
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update()

@@ -33,6 +33,12 @@ public class ApproachDistract : DistractEffect
             approaching = false;
             fovController.GetComponent<Light2D>().intensity = 0.1f;
             animator.SetFloat("kecepatan", 0f);
+
+            // animasi check benda jatuh
+            if(transform.name == "Prajurit 4")
+            {
+                animator.SetTrigger("check");
+            }
         }
     }
 
