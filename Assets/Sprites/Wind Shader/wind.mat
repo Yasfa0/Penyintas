@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _WindInfluenceMask: 4
+    - _WindInfluenceMask: 25
     - _WindScale: 1
     - _WindSpeed: 1
     - _WindStrength: 0.6
