@@ -10,7 +10,8 @@ public class AudioPlayer : MonoBehaviour
     {
         for (int i = 0; i < clips.Count; i++)
         {
-            AudioManager.Instance.PlayLoopingAudio(clips[i],0);
+            //AudioManager.Instance.PlayLoopingAudio(clips[i],0);
+            AudioManager.Instance.PlayNewAudio(clips[i], 0, true);
         }
     }
 }

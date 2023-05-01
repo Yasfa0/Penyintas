@@ -12,8 +12,8 @@ public class MidpointFOV : FieldOfView
     //[SerializeField] protected float plusInactive = 2f;
     //[SerializeField] protected float plusWait = 0.5f;
     [SerializeField] protected float minLimit = 90f;
-    //[SerializeField] protected float minInactive = 4f;
-    //[SerializeField] protected float minWait = 0.5f;
+    [SerializeField] protected float minInactive = 4f;
+    [SerializeField] protected float minWait = 0.5f;
     protected bool rotateMin = false;
 
     [SerializeField] protected float midLimit;
@@ -58,7 +58,7 @@ public class MidpointFOV : FieldOfView
         else if (rotateMin && transform.localEulerAngles.z <= minLimit)
         {
             rotateMin = false;
-            //StartCoroutine(PauseRotation(minInactive, minWait));
+            StartCoroutine(PauseRotation(minInactive, minWait));
             rotateSpeed = -rotateSpeed;
             UpdateCycle();
         }else if (!midStop && Mathf.Approximately(transform.localEulerAngles.z,midLimit))
