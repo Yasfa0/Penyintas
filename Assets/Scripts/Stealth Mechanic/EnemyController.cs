@@ -42,8 +42,6 @@ public class EnemyController : MonoBehaviour
                 {
                     //Pertama kali sampe di Post Patrol
                     FOVController.SetCanControl(true);
-                    if(transform.GetComponent<AnimationTrigger>() != null)
-                        transform.GetComponent<AnimationTrigger>().offRadar = false;
                     FOVController.ChangeFoVList(patrolPoints[patrolIndex]);
                     reachedPost = true;
                     Debug.Log("Reached Patrol Point " + patrolPoints[patrolIndex].patrolPosition);
@@ -96,9 +94,6 @@ public class EnemyController : MonoBehaviour
         }
         FOVController.enabled = false;
         canControl = false;
-        if (transform.GetComponent<AnimationTrigger>() != null)
-            transform.GetComponent<AnimationTrigger>().offRadar = true;
-
     }
 
     public FOVController GetFOVController()

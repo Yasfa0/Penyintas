@@ -26,8 +26,8 @@ public class PlayerCharacter : MonoBehaviour
 
     private bool isHidden;
 
-    public float kecepatanInjured = 1f;
-    public float kecepatanHealthy = 2f;
+    [SerializeField] float kecepatanInjured = 1f;
+    [SerializeField] float kecepatanHealthy = 2f;
     [SerializeField] private List<GameObject> injuredHands = new List<GameObject>();
     [SerializeField] private List<GameObject> healthyHands = new List<GameObject>();
 

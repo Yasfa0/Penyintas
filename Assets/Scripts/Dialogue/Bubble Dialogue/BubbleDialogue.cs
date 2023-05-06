@@ -62,7 +62,9 @@ public class BubbleDialogue : MonoBehaviour
         lastOff = Time.time;
         lastOn = Time.time;
         dialogueIndex = 0;
-        TriggerConvo();
+
+        if (status) { TriggerConvo(); }
+        
         bubbleBox.SetActive(isVisible);
         //gameObject.SetActive(status);
     }
@@ -92,15 +94,14 @@ public class BubbleDialogue : MonoBehaviour
         if (GetComponent<BubbleConvoTrigger>())
         {
             //Debug.Log("Convo available");
-            foreach (BubbleConvoTrigger bubble in GetComponents<BubbleConvoTrigger>())
+            /*foreach (BubbleConvoTrigger bubble in GetComponents<BubbleConvoTrigger>())
             {
                 if (bubble.GetDialogueIndex() == dialogueIndex)
                 {
                     bubble.TriggerBubble();
                 }
-
-                //Debug.Log("Convo looped");
-            }
+            }*/
+            GetComponent<BubbleConvoTrigger>().TriggerBubble();
         }
     }
 

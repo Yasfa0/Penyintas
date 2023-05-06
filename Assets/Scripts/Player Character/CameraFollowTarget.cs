@@ -12,12 +12,21 @@ public class CameraFollowTarget : MonoBehaviour
 
     private void Awake()
     {
-        /*if (FindObjectOfType<PlayerCharacter>())
+        if (FindObjectOfType<PlayerCharacter>())
         {
             player = FindObjectOfType<PlayerCharacter>().transform;
-        }*/
+        }
+    }
 
-        player = GameObject.FindWithTag("Player").transform;
+    private void Start()
+    {
+        if (!Vector2.Equals(PlayerData.GetSpawnPosition(), Vector2.zero))
+        {
+            if (PlayerData.GetSpawnPosition().x >= endLimit.position.x)
+            {
+                transform.position = new Vector3(endLimit.position.x,transform.position.y,transform.position.z);
+            }
+        }
     }
 
     private void Update()

@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     Transform tanganKiriIK;
-    float gravity;
-    float kecepatanAwal;
 
     [Space(10)]
 
@@ -68,8 +66,6 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
         playerDead = false;
         isGrabbing = false;
-        gravity = rb.gravityScale;
-        kecepatanAwal = kecepatanMaks;
     }
 
     // Update is called once per frame
@@ -347,4 +343,5 @@ public class PlayerMovement : MonoBehaviour
         kecepatanMaks = speed;
         initKecepatan = speed;
     }
+
 }
