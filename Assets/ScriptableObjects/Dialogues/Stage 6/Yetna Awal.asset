@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f6c8166fe633844b77dff1f619c5b0, type: 3}
+  m_Name: Yetna Awal
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Suyetna
+    dialogue: Pagi pak, saya baru melihat wajah bapak, apakah bapak seorang pendatang?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Djoko
+    dialogue: Benar pak, saya baru datang di desa ini. Perkenalkan nama saya Djoko.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Suyetna
+    dialogue: Perkenalkan juga saya Suyetna, kepala desa di desa ini, jika ada perlu
+      sesuatu pak Djoko bisa mencari saya saja
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Suyetna
+    dialogue: Jika bisa, mungkin saya bisa bantu
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Djoko
+    dialogue: Baik pak Su..Suyetna
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Suyetna
+    dialogue: Ahaha, bapak bisa panggil saya Yetna juga gapapa
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Suyetna
+    dialogue: Warga desa sini juga lebih sering panggil saya pak Yetna
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Djoko
+    dialogue: Hehe baik pak Yetna. Mohon maaf untuk sebelumnya.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Suyetna
+    dialogue: Ah tidak apa-apa, santai saja dengan saya
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Suyetna
+    dialogue: Jadi adakah yang ingin pak Djoko tanyakan?
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  choices:
+  - text: Tentang Situasi Kerajaan
+    choiceIndex: 1
+    eventKey: -1
+  - text: Tentang Desa Ini
+    choiceIndex: 2
+    eventKey: -1
+  - text: Tentang Desa Lamongan
+    choiceIndex: 3
+    eventKey: -1
+  - text: Sampai Jumpa
+    choiceIndex: 4
+    eventKey: -1
+  eventIndex: -1

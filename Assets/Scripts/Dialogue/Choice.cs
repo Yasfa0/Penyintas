@@ -7,4 +7,5 @@ public class Choice
 {
     public string text;
     public int choiceIndex;
+    public int eventKey = -1;
 }

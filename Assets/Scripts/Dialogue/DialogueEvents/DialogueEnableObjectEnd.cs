@@ -20,6 +20,7 @@ public class DialogueEnableObjectEnd : MonoBehaviour, IDialogueEvent
         {
             FindObjectOfType<SceneLoading>().FadeToBlack();
         }
+      
         foreach (GameObject enObject in enableObjects)
         {
             enObject.SetActive(activate);

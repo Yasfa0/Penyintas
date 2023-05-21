@@ -29,7 +29,12 @@ public class OptionMenu : MonoBehaviour
     {
         if (AudioManager.Instance.GetAudioPlayers()[volumeIndex] != null)
         {
-            AudioManager.Instance.GetAudioPlayers()[volumeIndex].GetComponent<AudioSource>().volume = volumeSlider[volumeIndex].value; 
+            //AudioManager.Instance.GetAudioPlayers()[volumeIndex].GetComponent<AudioSource>().volume = volumeSlider[volumeIndex].value; 
+            AudioSource[] sources = AudioManager.Instance.GetAudioPlayers()[volumeIndex].GetComponents<AudioSource>();
+            for (int i = 0; i < sources.Length; i++)
+            {
+                sources[i].volume = volumeSlider[volumeIndex].value;
+            }
             Debug.Log("Updating Audio");
         }
     }
@@ -42,5 +47,6 @@ public class OptionMenu : MonoBehaviour
         }
         optionSetting.isFullscreen = fullscreenToggle.isOn;
         GameSetting.SaveSetting(optionSetting);
+        //AudioManager.Instance.CheckVolume();
     }
 }

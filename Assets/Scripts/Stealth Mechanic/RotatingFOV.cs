@@ -8,6 +8,7 @@ public class RotatingFOV : FieldOfView
     protected bool canRotate = true;
     //private float[] rotateTarget = {270,90};
     //private int rotateIndex;
+    private EnemyAnimationManager animationManager;
     [SerializeField] protected float rotateSpeed = 0.5f;
     [SerializeField] protected float plusLimit = 270f;
     [SerializeField] protected float plusInactive = 2f;
@@ -23,6 +24,12 @@ public class RotatingFOV : FieldOfView
         {
             rotateMin = true;
         }
+
+        if (GetComponentInParent<EnemyAnimationManager>())
+        {
+            animationManager = GetComponentInParent<EnemyAnimationManager>();
+        }
+
         base.Start();
     }
 
@@ -33,6 +40,10 @@ public class RotatingFOV : FieldOfView
         if (canRotate && !PauseMenu.Instance.GetIsPaused())
         {
             transform.Rotate(0, 0, rotateSpeed);
+            if (animationManager)
+            {
+                animationManager.AnimateEnemy(0);
+            }
         }
 
         RotateLimiter();
@@ -57,10 +68,14 @@ public class RotatingFOV : FieldOfView
 
     public IEnumerator PauseRotation(float offDuration, float waitDuration)
     {
-        canRotate = false;
+        canRotate = false; 
         yield return new WaitForSeconds(waitDuration);
         canTarget = false;
         lightField.intensity = 0;
+        if (animationManager)
+        {
+            animationManager.AnimateEnemy(1);
+        }
         //Debug.Log("Lights Off");
         //Debug.Log("Wait for " + waitDuration);
         if (offDuration > 0)

@@ -22,7 +22,7 @@ public class ApproachDistract : DistractEffect
     {
         if (approaching && !reachedTarget)
         {
-            transform.position = Vector2.MoveTowards(transform.position,approachTarget.position,5 * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position,approachTarget.position,3f * Time.deltaTime);
             fovController.transform.localEulerAngles = new Vector3(fovController.transform.localEulerAngles.x, fovController.transform.localEulerAngles.y, approachAngle);
             animator.SetFloat("kecepatan", 1f);
         }

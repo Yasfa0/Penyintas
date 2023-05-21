@@ -88,7 +88,8 @@ public class PauseMenu : MonoBehaviour
         pausePanel.SetActive(false);
         optionPanel.SetActive(true);
 
-        FindObjectOfType<OptionMenu>().SetupOption();
+        optionPanel.GetComponent<OptionMenu>().SetupOption();
+        //FindObjectOfType<OptionMenu>().SetupOption();
         EventSystem.current.SetSelectedGameObject(optionFocus);
     }
 

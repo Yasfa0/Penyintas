@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f6c8166fe633844b77dff1f619c5b0, type: 3}
+  m_Name: Kardi Kasih Kontrak
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Kardi
+    dialogue: Kenapa kau malah memeberikanku surat kontrak ini!
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Buang itu atau bakar saja, jauh kan itu dari ku!
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  choices: []
+  eventIndex: -1

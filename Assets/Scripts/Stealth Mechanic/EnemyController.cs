@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
             if (!reachedPost)
             {
                 //Gerak ke Pos Patrol
-                transform.position = Vector2.MoveTowards(transform.position, patrolPoints[patrolIndex].patrolPosition.position, 5 * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, patrolPoints[patrolIndex].patrolPosition.position, 3 * Time.deltaTime);
                 FOVController.transform.localEulerAngles = new Vector3(FOVController.transform.localEulerAngles.x, FOVController.transform.localEulerAngles.y, patrolPoints[patrolIndex].patrolAngle);
                 animator.SetFloat("kecepatan",1f);
 
@@ -94,6 +94,7 @@ public class EnemyController : MonoBehaviour
         }
         FOVController.enabled = false;
         canControl = false;
+        FOVController.gameObject.AddComponent<FieldOfView>();
     }
 
     public FOVController GetFOVController()

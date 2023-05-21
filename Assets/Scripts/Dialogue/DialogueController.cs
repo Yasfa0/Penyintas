@@ -183,11 +183,15 @@ public class DialogueController : MonoBehaviour
         Debug.Log("Showing Choices");
         foreach (Choice choice in dialogueList[dialogueRoute].choices)
         {
-            GameObject choiceBox = Instantiate(choiceBoxPrefab);
-            choiceBox.transform.SetParent(choicePanel);
-            choiceBox.GetComponentInChildren<Text>().text = choice.text;
-            choiceBox.GetComponent<ChoiceButton>().SetupChoice(choice.choiceIndex);
-            EventSystem.current.SetSelectedGameObject(choiceBox);
+            if ((choice.eventKey < 0) || (choice.eventKey >= 0 && SaveSystem.currentSaveData.eventKey[choice.eventKey]))
+            {
+                GameObject choiceBox = Instantiate(choiceBoxPrefab);
+                choiceBox.transform.SetParent(choicePanel);
+                choiceBox.GetComponentInChildren<Text>().text = choice.text;
+                choiceBox.GetComponent<ChoiceButton>().SetupChoice(choice.choiceIndex);
+                EventSystem.current.SetSelectedGameObject(choiceBox);
+            }
+            
         }
         selectingChoice = true;
     }

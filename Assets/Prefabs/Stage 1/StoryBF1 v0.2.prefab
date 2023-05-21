@@ -808,6 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueList: []
+  comicCanvas: {fileID: 0}
 --- !u!1 &946714336598854330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1359,8 @@ GameObject:
   - component: {fileID: 946714337046805092}
   - component: {fileID: 946714337046805093}
   - component: {fileID: 946714337046805090}
+  - component: {fileID: 8472022235320644747}
+  - component: {fileID: 4183706221316531936}
   m_Layer: 0
   m_Name: Dialogue1
   m_TagString: Untagged
@@ -1421,6 +1424,35 @@ MonoBehaviour:
   dialogueList:
   - {fileID: 11400000, guid: ac6556b3de6fe0a41a9c068fa0f934e0, type: 2}
   canSetup: 0
+--- !u!114 &8472022235320644747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946714337046805091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2aee6e50eda87f47a5e0a58585649f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventID: 0
+  eventKeyIndex: 2
+  keyValue: 1
+--- !u!114 &4183706221316531936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946714337046805091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae25b9fd45574684b99d62bcb2cf0c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventKeyIndex: 2
+  passVisibility: 0
 --- !u!1 &946714337166230362
 GameObject:
   m_ObjectHideFlags: 0

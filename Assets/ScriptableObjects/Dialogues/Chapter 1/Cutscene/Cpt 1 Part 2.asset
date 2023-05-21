@@ -23,4 +23,4 @@ MonoBehaviour:
     dialogue: Jangan sampai ketahuan..
     textColor: {r: 1, g: 1, b: 1, a: 1}
   choices: []
-  eventIndex: -1
+  eventIndex: 0

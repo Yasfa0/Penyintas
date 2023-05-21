@@ -46,6 +46,16 @@ public class SaveSlotButton : MonoBehaviour
         tempSave.posX = pos.x;
         tempSave.posY = pos.y;
         tempSave.health = FindObjectOfType<PlayerCharacter>().GetHealth();
+
+        if (SaveSystem.currentSaveData != null)
+        {
+            tempSave.eventKey = SaveSystem.currentSaveData.eventKey;
+        }
+        else
+        {
+            tempSave.eventKey = new bool[100];
+        }
+
         SaveSystem.SaveGame(tempSave,"save"+slotIndex);
         AudioManager.Instance.PlayAudio(saveSFX,1);
         UpdateSaveSlot();

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f6c8166fe633844b77dff1f619c5b0, type: 3}
+  m_Name: Kardi Kasih Foto
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Kardi
+    dialogue: Akhirnya kau bekerja dengan benar
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Karena kau sudah menemukan barang yang ku cari, sebagai imbalannya
+      kau bisa ikut aku menuju desa terdekat.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Djoko
+    dialogue: Baik, terimakasih untuk tumpanganya pak.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Oh iya, kita belum saling kenal ya
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Maaf atas ketidak sopanan saya yang langsung mengajukan permintaan
+      seperti tadi
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Karena bagaimanapun juga foto ini sangat berarti bagi saya.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Saya jadi tidak tenang dan gelisah saat kehilangan foto ini.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Oh maaf, malah jadi curhat nih hahahaha...
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Khem.., perkenalkan nama saya kardi seorang pedagang keliling yang
+      memimpin salah satu karavan terbesar di jawa timur.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Djoko
+    dialogue: Perkenalkan juga, saya Djoko.
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - name: Kardi
+    dialogue: Ok mas djoko kita langsung berangkat saja menuju desa ...
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  choices: []
+  eventIndex: 0

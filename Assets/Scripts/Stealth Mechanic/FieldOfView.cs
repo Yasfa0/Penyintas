@@ -11,9 +11,9 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] protected float range = 7f;
     protected Transform fovPoint;
     protected Transform target;
-    public LayerMask layerMask;
+    public LayerMask layerMask = ~0;
     protected Light2D lightField;
-    protected float lightIntensity;
+    protected float lightIntensity = 0.5f;
 
     protected bool canTarget = true;
 

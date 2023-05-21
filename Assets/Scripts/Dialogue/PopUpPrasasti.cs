@@ -8,6 +8,8 @@ public class PopUpPrasasti : MonoBehaviour
     [Header("Game Object Reference")]
     [SerializeField] Image titleImg;
     [SerializeField] Text contentText;
+    [SerializeField] GameObject endText;
+    GameObject responseDialogue;
     [Space(10)]
 
     [Header("Pop Up Content")]
@@ -21,6 +23,7 @@ public class PopUpPrasasti : MonoBehaviour
     private void Awake()
     {
         titleImg.sprite = titleSprite;
+        endText.SetActive(false);
         //contentText.text = content;
     }
 
@@ -40,6 +43,10 @@ public class PopUpPrasasti : MonoBehaviour
                 FindObjectOfType<PlayerMovement>().SetCanMove(true);
                 FindObjectOfType<PlayerMovement>().ResetSpeed();
             }
+            if (responseDialogue)
+            {
+                responseDialogue.SetActive(true);
+            }
             Destroy(gameObject);
         }
     }
@@ -55,6 +62,7 @@ public class PopUpPrasasti : MonoBehaviour
 
         doneWriting = true;
         Debug.Log("Typing Dialogue");
+        endText.SetActive(true);
         yield return null;
     }
 
@@ -62,6 +70,11 @@ public class PopUpPrasasti : MonoBehaviour
     {
         this.interactPopUp = interactPopUp;
         interactPopUp.SetInstantiated(true);
+    }
+
+    public void SetResponseDialogue(GameObject response)
+    {
+        responseDialogue = response;
     }
 
 }

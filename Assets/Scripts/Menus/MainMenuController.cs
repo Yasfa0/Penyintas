@@ -91,6 +91,31 @@ public class MainMenuController : MonoBehaviour
         AudioManager.Instance.PlayAudio(buttonSound, 1);
         PlayerData.SetSpawnPosition(new Vector2(0,0));
         PlayerData.SetHealth(1);
+
+        //Create Temp Save
+        /*SaveData tempSave = new SaveData();
+        tempSave.isQuicksave = true;
+        tempSave.sceneName = "Stage 1";
+        Vector3 pos = new Vector3();
+        tempSave.posX = pos.x;
+        tempSave.posY = pos.y;
+        tempSave.health = 1;
+
+        if (SaveSystem.currentSaveData != null)
+        {
+            tempSave.eventKey = SaveSystem.currentSaveData.eventKey;
+        }
+        else
+        {
+            tempSave.eventKey = new bool[100];
+        }
+
+
+        SaveSystem.SaveGame(tempSave, "saveTemp");
+        SaveSystem.SetCurrentSaveData(tempSave);
+        Debug.Log("Temp Save Created");*/
+        //Done Saving
+
         FindObjectOfType<SceneLoading>().LoadScene(firstStage,1);
     }
 

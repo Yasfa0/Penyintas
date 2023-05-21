@@ -12,9 +12,15 @@ public class BlinkFOV : FieldOfView
     [SerializeField] protected float minInactive = 4f;
     [SerializeField] protected float minWait = 0.5f;
     protected bool rotateMin = true;
+    private EnemyAnimationManager animationManager;
 
     protected override void Start()
     {
+        if (GetComponentInParent<EnemyAnimationManager>())
+        {
+            animationManager = GetComponentInParent<EnemyAnimationManager>();
+        }
+
         base.Start();
     }
 
@@ -30,6 +36,11 @@ public class BlinkFOV : FieldOfView
             }else if (!rotateMin)
             {
                 transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, plusLimit);
+            }
+
+            if (animationManager)
+            {
+                animationManager.AnimateEnemy(0);
             }
 
             RotateLimiter();
@@ -63,6 +74,10 @@ public class BlinkFOV : FieldOfView
         lightField.intensity = 0;
         //Debug.Log("Lights Off");
         //Debug.Log("Wait for " + waitDuration);
+        if (animationManager)
+        {
+            animationManager.AnimateEnemy(1);
+        }
         if (offDuration > 0)
         {
             yield return new WaitForSeconds(offDuration);

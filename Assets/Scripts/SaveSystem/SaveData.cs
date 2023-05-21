@@ -10,7 +10,17 @@ public class SaveData
     public float posX, posY;
     public int health;
 
-    public List<bool> eventKey;
+    public bool[] eventKey = new bool[100];
+
+    /*Event Key List
+     * 1 = Starting Comic
+     * 2 = Corpse Hiding Spot Dialogue
+     * 61 = Bantu Kardi
+     * 99 = Ambil uang
+     * 98 = Ambil kontrak
+     * 97 = Ambil foto
+     * End List 
+    */
 
     public SaveData()
     {

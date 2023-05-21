@@ -48,6 +48,7 @@ public class AudioManager : MonoBehaviour
         AudioSource audioSource = audioPlayers[audioType].GetComponent<AudioSource>();
         audioSource.clip = targetClip;
         audioSource.loop = false;
+        audioSource.volume = GameSetting.LoadSetting().audioVolume[audioType];
         audioSource.Play();
     }
 
@@ -57,6 +58,7 @@ public class AudioManager : MonoBehaviour
         AudioSource audioSource = audioPlayers[audioType].GetComponent<AudioSource>();
         audioSource.clip = targetClip;
         audioSource.loop = true;
+        audioSource.volume = GameSetting.LoadSetting().audioVolume[audioType];
         audioSource.Play();
     }
 
@@ -65,6 +67,7 @@ public class AudioManager : MonoBehaviour
         AudioSource audioSource = audioPlayers[audioType].AddComponent<AudioSource>();
         audioSource.clip = targetClip;
         audioSource.loop = isLooping;
+        audioSource.volume = GameSetting.LoadSetting().audioVolume[audioType];
         audioSource.Play();
     }
 
@@ -77,6 +80,22 @@ public class AudioManager : MonoBehaviour
         else
         {
             return null;
+        }
+    }
+
+    public void ReplaceAudioSlot(AudioClip targetClip,int audioPlayerIndex, int slot)
+    {
+        List<AudioSource> audioSources = new List<AudioSource>();
+
+        foreach (AudioSource audioPlayer in audioPlayers[audioPlayerIndex].GetComponents<AudioSource>())
+        {
+            audioSources.Add(audioPlayer);
+        }
+
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            audioSources[slot].clip = targetClip;
+            audioSources[slot].Play();
         }
     }
 
