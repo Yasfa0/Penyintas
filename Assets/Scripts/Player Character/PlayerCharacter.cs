@@ -28,8 +28,8 @@ public class PlayerCharacter : MonoBehaviour
 
     [SerializeField] float kecepatanInjured = 1f;
     [SerializeField] float kecepatanHealthy = 2f;
-    [SerializeField] private List<GameObject> injuredHands = new List<GameObject>();
-    [SerializeField] private List<GameObject> healthyHands = new List<GameObject>();
+    [SerializeField] private List<SpriteRenderer> injuredHands = new List<SpriteRenderer>();
+    [SerializeField] private List<SpriteRenderer> healthyHands = new List<SpriteRenderer>();
 
     private void Awake()
     {
@@ -189,13 +189,13 @@ public class PlayerCharacter : MonoBehaviour
         }
 
 
-        foreach (GameObject injuredHand in injuredHands)
+        foreach (SpriteRenderer injuredHand in injuredHands)
         {
-            injuredHand.SetActive(injuHand);
+            injuredHand.enabled = injuHand;
         }
-        foreach (GameObject healthyHand in healthyHands)
+        foreach (SpriteRenderer healthyHand in healthyHands)
         {
-            healthyHand.SetActive(healthHand);
+            healthyHand.enabled = healthHand;
         }
 
         GetComponent<PlayerMovement>().SetCanJump(healthHand);

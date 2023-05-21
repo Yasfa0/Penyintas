@@ -3412,7 +3412,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 815b42801d034b84dafcb145682a36b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10642,6 +10642,11 @@ Transform:
   m_Father: {fileID: 889442492}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &993295828 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1584141769180790126, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+  m_PrefabInstance: {fileID: 4351281482446590322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &998652883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11319,6 +11324,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9664d3660f8fe458809dc488a24488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1041966339 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 127963064584729597, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+  m_PrefabInstance: {fileID: 4351281482446590322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1087977472
 GameObject:
   m_ObjectHideFlags: 0
@@ -12748,7 +12758,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: bed534dacf3e84a4487b3c0c2dcd5345, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18787,7 +18797,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 815b42801d034b84dafcb145682a36b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18819,6 +18829,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &1558311760 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8908220299347273971, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+  m_PrefabInstance: {fileID: 4351281482446590322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1570885726
 GameObject:
   m_ObjectHideFlags: 0
@@ -21945,6 +21960,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 10.52054}
   m_EdgeRadius: 0
+--- !u!212 &2028459876 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7360694160850644297, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+  m_PrefabInstance: {fileID: 4351281482446590322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2049942458
 GameObject:
   m_ObjectHideFlags: 0
@@ -22711,6 +22731,30 @@ PrefabInstance:
       propertyPath: health
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3319478647423165511, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: healthyHands.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319478647423165511, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: injuredHands.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319478647423165511, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: healthyHands.Array.data[0]
+      value: 
+      objectReference: {fileID: 1558311760}
+    - target: {fileID: 3319478647423165511, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: healthyHands.Array.data[1]
+      value: 
+      objectReference: {fileID: 1041966339}
+    - target: {fileID: 3319478647423165511, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: injuredHands.Array.data[0]
+      value: 
+      objectReference: {fileID: 993295828}
+    - target: {fileID: 3319478647423165511, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: injuredHands.Array.data[1]
+      value: 
+      objectReference: {fileID: 2028459876}
     - target: {fileID: 3867159526205560144, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.20645599
@@ -22722,6 +22766,14 @@ PrefabInstance:
     - target: {fileID: 3932478042310441141, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
       propertyPath: m_Name
       value: Djoko Player Chara v2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333557530771330426, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: tanganKiri
+      value: 
+      objectReference: {fileID: 1041966339}
+    - target: {fileID: 6333557530771330426, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
+      propertyPath: jumpStrength
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6642400395960491253, guid: 9048e3148a9272946a2ce8fe260cf48b, type: 3}
       propertyPath: m_LocalRotation.w

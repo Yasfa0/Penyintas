@@ -11,6 +11,13 @@ public class PlayerRopeGrab : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] LayerMask ropeLayer;
     Rigidbody2D attachedRope;
+    Animator animator;
+    PlayerMovement player;
+
+    public Transform tanganKanan;
+    public Transform tanganKiri;
+    public Transform tali;
+    bool isHang = false;
     //Rigidbody2D toBeAttachedRope;
 
     bool isGrabbing = false;
@@ -19,12 +26,15 @@ public class PlayerRopeGrab : MonoBehaviour
     {
         hinge = GetComponentInParent<HingeJoint2D>();
         rb = GetComponentInParent<Rigidbody2D>();
+        animator = GetComponentInParent<Animator>();
+        player = GetComponentInParent<PlayerMovement>();
     }
 
     private void Update()
     {
         GrabRope();
         Swing();
+        
     }
 
     void Swing()
@@ -63,21 +73,31 @@ public class PlayerRopeGrab : MonoBehaviour
             {
                 if (toBeAttachedRope != attachedRope)
                 {
+                    player.attachRope = true;
                     isGrabbing = true;
                     attachedRope = toBeAttachedRope;
                     hinge.connectedBody = attachedRope;
                     hinge.enabled = true;
-
+                    animator.SetTrigger("isHang");
+                    tanganKanan.parent = tali.GetChild(0);
+                    tanganKiri.parent = tali.GetChild(1);
+                    player.isGrabbing = true;
                 }
             }
 
             if (Input.GetKeyUp(KeybindSaveSystem.currentKeybind.grab) && isGrabbing)
             {
+                player.attachRope = false;
                 isGrabbing = false;
                 hinge.enabled = false;
                 toBeAttachedRope = null;
                 attachedRope = null;
                 hinge.connectedBody = null;
+                animator.ResetTrigger("isHang");
+                animator.SetTrigger("releaseHang");
+                tanganKanan.parent = this.transform.parent;
+                tanganKiri.parent = this.transform.parent;
+                player.isGrabbing = false;
             }
 
         }

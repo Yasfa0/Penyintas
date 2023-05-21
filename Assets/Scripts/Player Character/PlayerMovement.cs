@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sprite")]
     public SpriteRenderer tanganKanan;
-    public GameObject tanganKiri;
+    public SpriteRenderer tanganKiri;
     public SpriteRenderer tanganKananTerluka;
     public SpriteRenderer tanganKiriTerluka;
     [Space(10)]
@@ -43,8 +43,10 @@ public class PlayerMovement : MonoBehaviour
 
     bool bisaJongkok;
     bool playerDead;
-    bool isGrabbing;
+
+    public bool isGrabbing;
     bool canJump, canRun = false;
+    [HideInInspector] public bool attachRope;
 
     //float move;
 
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
         playerDead = false;
         isGrabbing = false;
+        attachRope = false;
     }
 
     // Update is called once per frame
@@ -253,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeybindSaveSystem.currentKeybind.grab))
             {
                 tanganKiriTerluka.enabled = false;
-                tanganKiri.SetActive(true);
+                tanganKiri.enabled = true;
                 isGrabbing = true;
 
                 tanganKiriIK.parent = detect.grabableObject.transform.GetChild(0);
@@ -263,7 +266,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyUp(KeybindSaveSystem.currentKeybind.grab))
             {
                 tanganKiriTerluka.enabled = true;
-                tanganKiri.SetActive(false);
+                tanganKiri.enabled = false;
                 isGrabbing = false;
 
                 tanganKiriIK.parent = this.transform;
@@ -277,11 +280,13 @@ public class PlayerMovement : MonoBehaviour
             tanganKiriTerluka.enabled = true;
             if (anim.GetBool("isInjured"))
             {
-                tanganKiri.SetActive(false);
+                tanganKiri.enabled = false;
             }
-            
-            tanganKiriIK.parent = this.transform;
-            isGrabbing = false;
+            if(attachRope == false)
+            {
+                tanganKiriIK.parent = this.transform;
+                isGrabbing = false;
+            }
         }
     }
 
